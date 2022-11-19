@@ -13,9 +13,8 @@ html {
 }
 
 .bg {
-  background: conic-gradient(
-    from 165deg at 70% 50%,
-    #ffffff 0deg,
-    #bae390 360deg
+  background: linear-gradient(
+    #ffffff,
+    #bae390
   );
 }
