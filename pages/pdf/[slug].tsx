@@ -1,9 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+
 
 const ViewPdf = () => {
     const router = useRouter();
@@ -18,7 +21,7 @@ const ViewPdf = () => {
 
     useEffect(() => {
         console.log(slug);
-        console.log(selectedText)
+        console.log(selectedText);
         axios.post(`http://localhost:5000/`, { query: slug })
             .then(res => {
                 console.log(res.data);
@@ -27,7 +30,7 @@ const ViewPdf = () => {
             })
             .catch(err => {
                 console.error(err)
-            })
+            });
 
     }, [slug]);
 
@@ -51,6 +54,7 @@ const ViewPdf = () => {
             <div className='flex items-center justify-center'>
                 <div className='flex flex-col w-[50vw] h-screen'>
                     <h1 className='text-2xl border-b-2 border-black font-bold m-2 p-2'>{slug}</h1>
+
                     <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
@@ -75,7 +79,8 @@ const ViewPdf = () => {
                 </div>
                 {
                     response &&
-                    <embed id="iframe-text" className="rounded w-[50%] h-screen" src={response[0][1]}></embed>
+                    <embed id="iframe-text" className="rounded h-screen w-[50%]" src={response[0][1]}></embed>
+
                 }
             </div>
         </Layout>

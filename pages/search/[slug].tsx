@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../layout';
 import { toast, Toaster } from 'react-hot-toast';
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 const SearchResults = () => {
     const router = useRouter();
@@ -88,6 +89,7 @@ const SearchResults = () => {
                                             <h2 className='p-4 font-bold rounded-md text-lg capitalize'>{item[0]}</h2>
                                             <button onClick={openModal} value={item} className='border border-black hover:bg-gray-50 hover:scale-105 transition-all w-[60%] rounded-md p-2 m-2 text-sm mx-auto'>View Abstract</button>
                                         </motion.div>
+
                                     )
                                 })
                             }
@@ -108,11 +110,15 @@ const SearchResults = () => {
                             transition={{ duration: 0.5 }}
                             className='flex flex-col justify-center items-center m-4'>
                             <div className='flex bg-slate-100 glass rounded-md flex-col items-center justify-center p-8 border border-black'>
-                                <h1 className='font-bold text-3xl p-2 m-2'>{modalContent.substring(0, modalContent.indexOf(','))}</h1>
+                                <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#fff000' show={modal}>
+                                    <h1 className='font-bold text-3xl p-2 m-2'>{modalContent.substring(0, modalContent.indexOf(','))}</h1>
+                                </RoughNotation>
                                 <p className='w-[90%] mt-12'><strong className='font-bold'>Abstract: {' '}</strong> {modalContent.substring(modalContent.indexOf(',') + 2)}</p>
                                 <div>
-                                    <button onClick={handleClick} value={pdfs} className='border hover:scale-105 transition-all border-black hover:bg-slate-100 rounded-md p-2 mt-6 mb-2 w-32'>View PDF</button>
-                                    
+                                    <RoughNotation animationDelay={1000} animationDuration={2000} type="underline" show={modal}>
+                                        <button onClick={handleClick} value={pdfs} className='border hover:scale-105 transition-all border-black hover:bg-slate-100 rounded-md p-2 mt-6 mb-2 w-32'>View PDF</button>
+
+                                    </RoughNotation>
                                 </div>
                             </div>
                         </motion.div>
