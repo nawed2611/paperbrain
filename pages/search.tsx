@@ -3,6 +3,8 @@ import { useUser } from '@auth0/nextjs-auth0';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 import Layout from './layout';
 
@@ -16,7 +18,7 @@ const Search = () => {
     e.preventDefault();
     router.push(`/search/${query}`);
   }
-  
+
   return (
     <Layout>
       <div className='flex h-screen items-center justify-center w-screen'>
@@ -24,10 +26,12 @@ const Search = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }} className='flex flex-col items-center p-6 w-[60vw]'>
-          <div className='p-8'>
-            <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
-            <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
-          </div>
+          <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#fff000' show={true}>
+            <div className='p-8'>
+              <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
+              <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
+            </div>
+          </RoughNotation>
           <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center p-2">
             <input type="text" className="bg-white text-green-600 h-14 w-full px-12 rounded-full border-2 focus:outline-none " value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Enter your Search" />
             <button className="border m-3 border-black py-1 w-24 text-sm rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'>Search</button>
@@ -39,7 +43,7 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-12 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <img className="block mx-auto h-12 rounded-full sm:mx-0 sm:shrink-0" src={user.picture} alt={user.nickname} />
+            <Image width={32} height={32} className="block mx-auto h-12 rounded-full sm:mx-0 sm:shrink-0" src={user.picture} alt={user.nickname} />
             <div className="text-center space-y-2 sm:text-left">
               <div className="space-y-0.5">
                 <p className="text-lg text-black font-semibold">
