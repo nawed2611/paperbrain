@@ -12,13 +12,13 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+CORS(app,)
 
 # open training file
 f = open("training.txt", "r")
 
 
-@cross_origin(supports_credentials=True)
+@cross_origin('*')
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
@@ -39,8 +39,11 @@ def home():
             papers_list.append([result.title,result.pdf_url,result.summary])
         
         
-        print(papers_list)
-        return {"bruh":papers_list}
+        res = {"bruh": papers_list}
+        # adding headers in response
+        # , 200, {'Access-Control-Allow-Origin': '*'}
+        # resp.headers['Access-Control-Allow-Origin'] = '*'
+        return res, 200, {'Access-Control-Allow-Origin': '*'}
 
 
     return "<h1>This is working</h1>"
