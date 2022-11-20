@@ -56,7 +56,7 @@ def explain():
 
         response = openai.Completion.create(
         model="text-davinci-002",
-        prompt=f"{f.read()}###\nPrompt:\n{excerpt}\n\nResult:\n",
+        prompt=f"The user is a novice reading a research paper. Explain the following text in the context of the topic.\n{excerpt}",
         temperature=0.8,
         max_tokens=293,
         top_p=1,
