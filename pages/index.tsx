@@ -21,7 +21,7 @@ export default function Home() {
     <Layout className='overflow-hidden'>
       <div className="flex flex-col h-screen items-center justify-center">
         <Toaster />
-        <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={active}>
+        <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
           <h1 className="font-bold text-8xl">ReSearch!</h1>
         </RoughNotation>
         <p className="mt-4 font-extralight text-xl">Exploring your study papers has never been easier!</p>
