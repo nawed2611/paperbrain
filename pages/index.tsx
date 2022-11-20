@@ -21,6 +21,10 @@ export default function Home() {
     <Layout className='overflow-hidden'>
       <div className="flex flex-col h-screen items-center justify-center">
         <Toaster />
+        <div className='flex text-gray-900 mb-20 gap-4'>
+          <Link className='hover:scale-105 hover:underline transition-all' href="https://github.com/nawed2611/metrohacks">Code</Link>
+          <Link className='hover:scale-105 hover:underline transition-all' href="https://github.com/nawed2611/metrohacks">Devpost</Link>
+        </div>
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
           <h1 className="font-bold text-8xl">ReSearch!</h1>
         </RoughNotation>
