@@ -19,11 +19,12 @@ const SearchResults = () => {
         console.log('lol', e.target.value.split(",", 2));
         const url = e.target.value.split(",", 2);
         console.log('url', url);
-        setPdfs(url)
+        setPdfs(url);
         console.log('opening modal', e.target.value);
         setOpenModal(true);
         let a = e.target.value.replace(url[0], '')
         a = e.target.value.replace(url[1], '')
+        console.log('a', a);
         setModalContent(a);
     }
 
@@ -67,11 +68,11 @@ const SearchResults = () => {
                 {
                     response &&
                     <div className='h-screen border border-black-2'>
-                        <div className='p-3 flex flex-col items-center justify-center'>
+                        <div className='p-3 w-[30vw] flex flex-col items-center justify-center'>
                             <h2 className='font-bold text-2xl capitalize m-2'>Search Results for: {slug}</h2>
                             <Link className="border border-black p-1 px-4 rounded hover:bg-slate-100" href="/search">Go Back</Link>
                         </div>
-                        <div className='w-96 h-[83vh] overflow-y-scroll border border-black-2 flex flex-col items-center'>
+                        <div className='w-96 h-[83vh] overflow-y-scroll border-2 flex flex-col items-center'>
                             {
                                 response.map((item, index) => {
                                     return (
@@ -79,8 +80,9 @@ const SearchResults = () => {
                                             initial={{ opacity: 0, scale: 0.5 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ duration: 0.5 }}
-                                            key={index} className='flex justify-center glass flex-col p-2 border border-black m-2 w-72'>
-                                            <h2 className='p-4 font-bold  rounded-md text-xl capitalize'>{item[0]}</h2>
+                                            key={index}
+                                            className='flex justify-center glass flex-col p-2 border-black'>
+                                            <h2 className='p-4 font-bold rounded-md text-xl capitalize'>{item[0]}</h2>
                                             <button onClick={openModal} value={item} className='border border-black hover:bg-slate-100 rounded-md p-2 m-2'>View Abstract</button>
                                         </motion.div>
                                     )
@@ -104,7 +106,7 @@ const SearchResults = () => {
                             className='h-screen flex flex-col justify-center items-center m-4'>
                             <div className='flex bg-slate-100 glass rounded-md flex-col items-center justify-center p-12 mx-12 border border-black'>
                                 <h1 className='font-bold text-3xl p-2 m-2'>{modalContent.substring(0, modalContent.indexOf(','))}</h1>
-                                <p><strong className='font-bold text-xl'>Abstract:</strong> {modalContent.trim(modalContent.substring(0, modalContent.indexOf(',')))}</p>
+                                <p><strong className='font-bold text-xl'>Abstract:</strong> {modalContent.substring(modalContent.indexOf(',') + 2)}</p>
                                 <button onClick={handleClick} value={pdfs} className='border border-black hover:bg-slate-100 rounded-md p-2 mt-6 mb-2 w-32'>View PDF</button>
                                 <button onClick={handleStarred} value={modalContent} className='border border-black w-32 hover:bg-slate-100 rounded-md p-2 m-2'>Star</button>
                             </div>
