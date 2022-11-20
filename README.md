@@ -1,4 +1,8 @@
-<h1 align="center">Re Search</h1>
+<h1 align="center">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/83456083/202904750-c7207cf0-c323-4f82-a7bb-370f2486ef27.png">
+
+</h1>
+
 
 <h1> Problem Statement </h1>
 
