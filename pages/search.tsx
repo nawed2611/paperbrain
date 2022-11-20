@@ -43,7 +43,7 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-12 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <Image width={32} height={32} className="block mx-auto h-12 rounded-full sm:mx-0 sm:shrink-0" src={user.picture} alt={user.nickname} />
+            <img className="block mx-auto h-12 rounded-full sm:mx-0 sm:shrink-0" src={user.picture} alt={user.nickname} />
             <div className="text-center space-y-2 sm:text-left">
               <div className="space-y-0.5">
                 <p className="text-lg text-black font-semibold">
