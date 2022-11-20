@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../layout';
+import { toast, Toaster } from 'react-hot-toast';
 
 const SearchResults = () => {
     const router = useRouter();
@@ -55,6 +56,7 @@ const SearchResults = () => {
                 console.log(res.data);
                 setLoading(false);
                 setResponse(res.data.bruh);
+                toast.success(`Results for ${slug} found!`);
 
             })
             .catch(err => {
@@ -63,14 +65,15 @@ const SearchResults = () => {
     }, [slug]);
 
     return (
-        <Layout>
-            <div className='flex ring overflow-y-hidden'>
+        <Layout className='overflow-hidden'>
+            <div className='flex'>
+                <Toaster />
                 {
                     response &&
-                    <div className='h-screen border border-black-2'>
+                    <div className='border border-black-2'>
                         <div className='p-3 w-[30vw] flex flex-col items-center justify-center'>
                             <h2 className='font-bold text-2xl capitalize m-2'>Search Results for: {slug}</h2>
-                            <Link className="border border-black p-1 px-4 rounded hover:bg-slate-100" href="/search">Go Back</Link>
+                            <Link className="border rounded border-black p-1 px-4 hover:bg-gray-50 transition-all hover:scale-105" href="/search">Go Back</Link>
                         </div>
                         <div className='w-96 h-[83vh] overflow-y-scroll border-2 flex flex-col items-center'>
                             {
@@ -81,9 +84,9 @@ const SearchResults = () => {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ duration: 0.5 }}
                                             key={index}
-                                            className='flex justify-center glass flex-col p-2 border-black'>
-                                            <h2 className='p-4 font-bold rounded-md text-xl capitalize'>{item[0]}</h2>
-                                            <button onClick={openModal} value={item} className='border border-black hover:bg-slate-100 rounded-md p-2 m-2'>View Abstract</button>
+                                            className='w-full flex justify-center glass flex-col p-2 border-black hover:bg-gray-100'>
+                                            <h2 className='p-4 font-bold rounded-md text-lg capitalize'>{item[0]}</h2>
+                                            <button onClick={openModal} value={item} className='border border-black hover:bg-gray-50 hover:scale-105 transition-all w-[60%] rounded-md p-2 m-2 text-sm mx-auto'>View Abstract</button>
                                         </motion.div>
                                     )
                                 })
@@ -97,24 +100,25 @@ const SearchResults = () => {
                         </div>
                     </div>
                 }
-                <div className='w-full'>
+                <div className='w-full h-[98vh] overflow-y-scroll '>
                     {
                         modal &&
                         <motion.div initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
-                            className='h-screen flex flex-col justify-center items-center m-4'>
-                            <div className='flex bg-slate-100 glass rounded-md flex-col items-center justify-center p-12 mx-12 border border-black'>
+                            className='flex flex-col justify-center items-center m-4'>
+                            <div className='flex bg-slate-100 glass rounded-md flex-col items-center justify-center p-8 border border-black'>
                                 <h1 className='font-bold text-3xl p-2 m-2'>{modalContent.substring(0, modalContent.indexOf(','))}</h1>
-                                <p><strong className='font-bold text-xl'>Abstract:</strong> {modalContent.substring(modalContent.indexOf(',') + 2)}</p>
-                                <button onClick={handleClick} value={pdfs} className='border border-black hover:bg-slate-100 rounded-md p-2 mt-6 mb-2 w-32'>View PDF</button>
-                                <button onClick={handleStarred} value={modalContent} className='border border-black w-32 hover:bg-slate-100 rounded-md p-2 m-2'>Star</button>
+                                <p className='w-[90%] mt-12'><strong className='font-bold'>Abstract: {' '}</strong> {modalContent.substring(modalContent.indexOf(',') + 2)}</p>
+                                <div>
+                                    <button onClick={handleClick} value={pdfs} className='border hover:scale-105 transition-all border-black hover:bg-slate-100 rounded-md p-2 mt-6 mb-2 w-32'>View PDF</button>
+                                    
+                                </div>
                             </div>
                         </motion.div>
                     }
                 </div>
             </div>
-
         </Layout>
     )
 }
