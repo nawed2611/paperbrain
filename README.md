@@ -2,7 +2,7 @@
 ReSearch
 </h1>
 
-Demo - YouTube, Devpost
+Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
 
 <h1> Problem Statement </h1>
 
@@ -25,3 +25,4 @@ So this can be a holistic platform for all the researchers or anyone who reads r
   <li>Python Flask</li>
   <li>Tailwind CSS</li>
   <li>GPT-3</li>
+</ul>
