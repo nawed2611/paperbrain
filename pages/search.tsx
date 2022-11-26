@@ -33,8 +33,8 @@ const Search = () => {
             </div>
           </RoughNotation>
           <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center p-2">
-            <input type="text" className="bg-white text-green-600 h-14 w-full px-12 rounded-full border-2 focus:outline-none " value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Enter your Search" />
-            <button className="border m-3 border-black py-1 w-24 text-sm rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'>Search</button>
+            <input type="text" className="bg-white text-green-600 h-12 w-[20vw] px-6 rounded-full border-2 focus:outline-none " value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Enter your Search" />
+            <button className="border m-3 border-black py-1 w-20 hover:scale-105 transition-all text-sm rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'>Search</button>
           </form>
         </motion.div>
         {
@@ -43,9 +43,9 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-12 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <img className="block mx-auto h-12 rounded-full sm:mx-0 sm:shrink-0" src={user.picture} alt={user.nickname} />
+            <Image src={`${user.picture}`} alt="user-profile-picture" width={50} height={50} className="rounded-full" />
             <div className="text-center space-y-2 sm:text-left">
-              <div className="space-y-0.5">
+              <div className="space-y-0.5 mb-2">
                 <p className="text-lg text-black font-semibold">
                   {user.name}
                 </p>
@@ -53,7 +53,7 @@ const Search = () => {
                   {user.email}
                 </p>
               </div>
-              <Link scroll={false} href='/api/auth/logout' className="px-4 py-1 mt-8 transition-all text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-400 hover:border-transparent focus:outline-none focus-2 focus-green-600 focus-offset-2">
+              <Link scroll={false} href='/api/auth/logout' className="px-4 py-1 transition-all text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-400 hover:border-transparent focus:outline-none focus-2 focus-green-600 focus-offset-2">
                 Logout
               </Link>
             </div>
