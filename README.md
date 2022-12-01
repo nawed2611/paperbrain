@@ -13,10 +13,7 @@ Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
 <p> Our platform is the go-to platform for accessing and understanding research papers. We provide a fascinating interface for users to search for papers and return a list of papers with their abstracts and a direct pdf link in a prettified format.
 
 Since research papers are generally difficult to understand, we have added a explain paper feature using Open AI's GPT-3 model. Users can simply copy-paste an excerpt and our primed model will translate it into an easy and understandable form.
-
-We also have a bookmark feature that we can use to bookmark the paper we like and access it later. 
-We have a markdown feature as well, we enable users to take notes while going through papers simultaneously, and they can access them later as well. 
-So this can be a holistic platform for all the researchers or anyone who reads research papers.. </p>
+</p>
   
 <h1> Tech Stack </h1>
 
