@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import { RoughNotation } from "react-rough-notation";
 import Link from "next/link";
 import Layout from './layout';
 import toast, { Toaster } from 'react-hot-toast';
@@ -10,6 +10,7 @@ export default function Home() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
+
     if (user) {
       console.log(user);
       setActive(true);
@@ -31,13 +32,9 @@ export default function Home() {
         <p className="mt-4 font-extralight text-xl">Exploring your study papers has never been easier!</p>
         {
           !active ?
-            (
-              <Link scroll={false} href='/api/auth/login' className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>Lets Get Started</Link>
-            )
+            <Link scroll={false} href='/api/auth/login' className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>Lets Get Started</Link>
             :
-            (
-              <Link scroll={false} href='/search' className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>Continue To Read!</Link>
-            )
+            <Link scroll={false} href='/search' className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>Continue To Read!</Link>
         }
       </div>
     </Layout>

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../layout';
 import { toast, Toaster } from 'react-hot-toast';
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import { RoughNotation } from "react-rough-notation";
 
 const SearchResults = () => {
     const router = useRouter();
@@ -15,18 +15,13 @@ const SearchResults = () => {
     const [modal, setOpenModal] = useState(false);
     const [modalContent, setModalContent] = useState('');
     const [response, setResponse] = useState([]);
-    const [starred, setStarred] = useState(false);
 
     const openModal = (e: any) => {
-        console.log('lol', e.target.value.split(",", 2));
         const url = e.target.value.split(",", 2);
-        console.log('url', url);
         setPdfs(url);
-        console.log('opening modal', e.target.value);
         setOpenModal(true);
         let a = e.target.value.replace(url[0], '')
         a = e.target.value.replace(url[1], '')
-        console.log('a', a);
         setModalContent(a);
     }
 
@@ -35,24 +30,10 @@ const SearchResults = () => {
         router.push(`/pdf/${e.target.value.split(",", 2)[1]}`, `/pdf/${e.target.value.split(",", 2)[0]}`);
     }
 
-    const handleStarred = (e: any) => {
-        console.log('starred', e.target.value);
-
-        axios.post(`http://localhost:5000/starred`, { query: e.target.value })
-            .then(res => {
-                console.log(res.data);
-                setStarred(res.data);
-            })
-            .catch(err => {
-                console.error(err);
-            })
-    }
-
-
     useEffect(() => {
         console.log(slug);
         setLoading(true);
-        axios.post(`http://localhost:5000/`, { query: slug })
+        axios.post(`${process.env.BACKEND_URL}` + '/', { query: slug })
             .then(res => {
                 console.log(res.data);
                 setLoading(false);

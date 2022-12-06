@@ -22,7 +22,7 @@ const ViewPdf = () => {
     useEffect(() => {
         console.log(slug);
         console.log(selectedText);
-        axios.post(`http://localhost:5000/`, { query: slug })
+        axios.post(`${process.env.BACKEND_URL}`, { query: slug })
             .then(res => {
                 console.log(res.data);
                 setResponse(res.data.bruh);
@@ -38,7 +38,7 @@ const ViewPdf = () => {
         e.preventDefault();
         setLoading(true);
 
-        axios.post(`http://localhost:5000/explain`, { query: explainQuery })
+        axios.post(`${process.env.BACKEND_URL}` + '/explain', { query: explainQuery })
             .then(res => {
                 console.log(res.data);
                 setResponse2(res.data);
