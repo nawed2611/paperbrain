@@ -14,12 +14,27 @@ Since research papers are generally difficult to understand, we have added a exp
 
 </p>
   
-## Tech Stack
+## Built Using
 
-<ul>
-  <li>NextJS</li>
-  <li>Auth0</li>
-  <li>Python Flask</li>
-  <li>Tailwind CSS</li>
-  <li>Open AI GPT-3</li>
-</ul>
+| Tech             | Link                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Front End | [Next.js](https://nextjs.org/)|
+| Back End | [Flask](https://flask.palletsprojects.com/en/2.2.x/)|
+| Model | [Open AI GPT-3](https://openai.com/api/)|
+| Stylings | [Tailwind CSS](https://tailwindcss.com/docs/)|
+| Animation | [Framer Motion](https://www.framer.com/motion/) |
+
+
+
+
+## Screenshots
+![Search Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/016/datas/gallery.jpg)
+Search Paper Page
+
+![Explain Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/017/datas/gallery.jpg)
+Explain Paper Page
+
+![View Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/019/datas/gallery.jpg)
+View Paper Page
+
+
