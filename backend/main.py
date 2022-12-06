@@ -8,9 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
-
-
 app = Flask(__name__)
 CORS(app,)
 
@@ -38,11 +35,7 @@ def home():
         for result in search_paper.results():
             papers_list.append([result.title,result.pdf_url,result.summary])
         
-        
         res = {"bruh": papers_list}
-        # adding headers in response
-        # , 200, {'Access-Control-Allow-Origin': '*'}
-        # resp.headers['Access-Control-Allow-Origin'] = '*'
         return res, 200, {'Access-Control-Allow-Origin': '*'}
 
 
@@ -54,9 +47,7 @@ def home():
 def explain():
 
     if request.method == 'POST':
-
         excerpt = request.json
-
         response = openai.Completion.create(
         model="text-davinci-002",
         prompt=f"The user is a novice reading a research paper. Explain the following text in the context of the topic.\n{excerpt}",

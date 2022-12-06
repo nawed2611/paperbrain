@@ -14,15 +14,13 @@ const ViewPdf = () => {
     const [response2, setResponse2] = React.useState({
         answer: '',
     });
-    const [selectedText, setSelectedText] = React.useState('');
     const { slug } = router.query;
     const [loading, setLoading] = useState(false);
     const [explainQuery, setExplainQuery] = useState('');
 
     useEffect(() => {
-        console.log(slug);
-        console.log(selectedText);
-        axios.post(`http://localhost:5000/`, { query: slug })
+
+        axios.post(`${process.env.BACKEND_URL}`, { query: slug })
             .then(res => {
                 console.log(res.data);
                 setResponse(res.data.bruh);
@@ -37,8 +35,7 @@ const ViewPdf = () => {
     const handleQuerySubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
-
-        axios.post(`http://localhost:5000/explain`, { query: explainQuery })
+        axios.post(`${process.env.BACKEND_URL}` + '/explain', { query: explainQuery })
             .then(res => {
                 console.log(res.data);
                 setResponse2(res.data);
@@ -73,7 +70,7 @@ const ViewPdf = () => {
                         }
                         {
                             loading &&
-                            <div className="m-4 p-4">Loading Simplified Explanation through Open AI...</div>
+                            <div className="m-4 p-4">Loading Explanation through Open AI...</div>
                         }
                     </motion.div>
                 </div>
