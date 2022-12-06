@@ -4,11 +4,9 @@ ReSearch
 
 Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
 
-<h1> Problem Statement </h1>
+<h1>About</h1>
 
 <p> People publish a lot of fascinating research out to the world, yet the tools to consume this research are quite primitive. It is also really hard to understand the research papers. </p>
-
-<h1> Idea </h1>
   
 <p> Our platform is the go-to platform for accessing and understanding research papers. We provide a fascinating interface for users to search for papers and return a list of papers with their abstracts and a direct pdf link in a prettified format.
 
@@ -16,10 +14,11 @@ Since research papers are generally difficult to understand, we have added a exp
 
 </p>
   
-<h1> Tech Stack </h1>
+<h1> Tech Stack</h1>
 
 <ul>
   <li>NextJS</li>
+  <li>Auth0</li>
   <li>Python Flask</li>
   <li>Tailwind CSS</li>
   <li>GPT-3</li>
