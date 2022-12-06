@@ -29,12 +29,15 @@ Since research papers are generally difficult to understand, we have added a exp
 
 ## Screenshots
 ![Search Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/016/datas/gallery.jpg)
+
 Search Paper Page
 
 ![Explain Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/017/datas/gallery.jpg)
+
 Explain Paper Page
 
 ![View Page](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/307/019/datas/gallery.jpg)
+
 View Paper Page
 
 
