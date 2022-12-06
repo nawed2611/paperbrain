@@ -15,10 +15,10 @@ const ViewPdf = () => {
     });
     const { slug } = router.query;
     const [loading, setLoading] = useState(false);
+    let currentString = '';
     const [explainQuery, setExplainQuery] = useState('');
 
     useEffect(() => {
-
         axios.post(`${process.env.BACKEND_URL}`, { query: slug })
             .then(res => {
                 console.log(res.data);
@@ -43,6 +43,18 @@ const ViewPdf = () => {
             .catch(err => {
                 console.error(err)
             })
+
+        addToCurrentString();
+    }
+
+    function addToCurrentString() {
+        if (currentString.length <= response2?.answer.length) {
+            currentString += response2?.answer[currentString.length];
+
+            setTimeout(addToCurrentString, 200);
+        }
+
+        console.log(currentString);
     }
 
     return (
@@ -63,7 +75,7 @@ const ViewPdf = () => {
                         </form>
                         {
                             response2 &&
-                            <div className="m-4 p-4">
+                            <div className="m-4 p-4 w-[40vw]">
                                 {response2?.answer}
                             </div>
                         }
