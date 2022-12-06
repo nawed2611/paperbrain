@@ -25,9 +25,9 @@ const Search = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }} 
+          transition={{ duration: 0.5 }}
           className='flex flex-col items-center p-6 w-[60vw]'>
-            
+
           <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#fff000' show={true}>
             <div className='p-8'>
               <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
@@ -40,13 +40,14 @@ const Search = () => {
             <button className="border m-3 border-black py-1 w-20 hover:scale-105 transition-all text-sm rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'>Search</button>
           </form>
         </motion.div>
+
         {
           user &&
           <motion.div initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-12 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <Image src={`${user.picture}`} alt="user-profile-picture" width={50} height={50} className="rounded-full" />
+            <img src={`${user.picture}`} alt="user-profile-picture" className="rounded-full" />
             <div className="text-center space-y-2 sm:text-left">
               <div className="space-y-0.5 mb-2">
                 <p className="text-lg text-black font-semibold">

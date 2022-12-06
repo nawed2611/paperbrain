@@ -10,7 +10,6 @@ export default function Home() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-
     if (user) {
       console.log(user);
       setActive(true);
