@@ -35,7 +35,7 @@ def home():
         for result in search_paper.results():
             papers_list.append([result.title,result.pdf_url,result.summary])
         
-        res = {"bruh": papers_list}
+        res = {"papers": papers_list}
         return res, 200, {'Access-Control-Allow-Origin': '*'}
 
 

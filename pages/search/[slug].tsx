@@ -37,7 +37,7 @@ const SearchResults = () => {
             .then(res => {
                 console.log(res.data);
                 setLoading(false);
-                setResponse(res.data.bruh);
+                setResponse(res.data.papers);
                 toast.success(`Results for ${slug} found!`);
 
             })
