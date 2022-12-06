@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 
 const ViewPdf = () => {
@@ -23,7 +22,7 @@ const ViewPdf = () => {
         axios.post(`${process.env.BACKEND_URL}`, { query: slug })
             .then(res => {
                 console.log(res.data);
-                setResponse(res.data.bruh);
+                setResponse(res.data.papers);
                 console.log(response2)
             })
             .catch(err => {
