@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
+import { toast } from 'react-hot-toast';
 
 
 const ViewPdf = () => {
@@ -34,14 +35,13 @@ const ViewPdf = () => {
     const handleQuerySubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
-        axios.post(`${process.env.BACKEND_URL}` + '/explain', { query: explainQuery })
+        axios.post(`https://flask-production-68e8.up.railway.app` + '/explain', { query: explainQuery })
             .then(res => {
-                console.log(res.data);
                 setResponse2(res.data);
                 setLoading(false);
             })
             .catch(err => {
-                console.error(err)
+                console.error(err);
             })
 
         addToCurrentString();

@@ -12,7 +12,6 @@ const Search = () => {
   const [query, setQuery] = useState('');
   const { user } = useUser();
   const router = useRouter();
-  console.log(user);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

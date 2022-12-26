@@ -26,23 +26,22 @@ const SearchResults = () => {
     }
 
     const handleClick = (e: any) => {
-        console.log('clicked', e.target.value.split(",", 2));
         router.push(`/pdf/${e.target.value.split(",", 2)[1]}`, `/pdf/${e.target.value.split(",", 2)[0]}`);
     }
 
     useEffect(() => {
         console.log(slug);
         setLoading(true);
-        axios.post(`${process.env.BACKEND_URL}` + '/', { query: slug })
+        axios.post(`https://flask-production-68e8.up.railway.app` + '/', { query: slug })
             .then(res => {
-                console.log(res.data);
-                setLoading(false);
                 setResponse(res.data.papers);
                 toast.success(`Results for ${slug} found!`);
-
+                setLoading(false);
             })
             .catch(err => {
-                console.error(err)
+                toast.error(`No results found for ${slug}!`);
+                setLoading(false);
+                console.error(err);
             })
     }, [slug]);
 
