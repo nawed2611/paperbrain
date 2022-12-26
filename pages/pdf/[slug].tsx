@@ -20,7 +20,7 @@ const ViewPdf = () => {
     const [explainQuery, setExplainQuery] = useState('');
 
     useEffect(() => {
-        axios.post(`${process.env.BACKEND_URL}`, { query: slug })
+        axios.post(`https://flask-production-68e8.up.railway.app`, { query: slug })
             .then(res => {
                 console.log(res.data);
                 setResponse(res.data.papers);
