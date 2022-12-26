@@ -87,7 +87,7 @@ const ViewPdf = () => {
                 </div>
                 {
                     response &&
-                    <embed id="iframe-text" className="rounded h-screen w-[50%]" src={response[0][1]}></embed>
+                    <embed id="iframe-text" className="rounded h-screen w-[50%]" src={response[0][1].replace("http://", "https://")}></embed>
 
                 }
             </div>
