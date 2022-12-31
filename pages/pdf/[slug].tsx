@@ -1,7 +1,6 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import dynamic from 'next/dynamic';
+import React, { useState, useEffect } from 'react';
+import { client } from '../../utils/client';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
@@ -10,21 +9,19 @@ import { toast } from 'react-hot-toast';
 
 const ViewPdf = () => {
     const router = useRouter();
-    const [response, setResponse] = React.useState('');
-    const [response2, setResponse2] = React.useState({
-        answer: '',
-    });
+    const [response, setResponse] = useState('');
+    const [response2, setResponse2] = useState({ answer: '' });
     const { slug } = router.query;
     const [loading, setLoading] = useState(false);
     let currentString = '';
     const [explainQuery, setExplainQuery] = useState('');
 
+
     useEffect(() => {
-        axios.post(`https://flask-production-68e8.up.railway.app`, { query: slug })
+        client.post('/', { query: slug })
             .then(res => {
                 console.log(res.data);
                 setResponse(res.data.papers);
-                console.log(response2)
             })
             .catch(err => {
                 console.error(err)
@@ -35,7 +32,7 @@ const ViewPdf = () => {
     const handleQuerySubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
-        axios.post(`https://flask-production-68e8.up.railway.app` + '/explain', { query: explainQuery })
+        client.post('/explain', { query: explainQuery })
             .then(res => {
                 setResponse2(res.data);
                 setLoading(false);
@@ -43,7 +40,6 @@ const ViewPdf = () => {
             .catch(err => {
                 console.error(err);
             })
-
         addToCurrentString();
     }
 
@@ -53,8 +49,6 @@ const ViewPdf = () => {
 
             setTimeout(addToCurrentString, 200);
         }
-
-        console.log(currentString);
     }
 
     return (
@@ -88,7 +82,6 @@ const ViewPdf = () => {
                 {
                     response &&
                     <embed id="iframe-text" className="rounded h-screen w-[50%]" src={response[0][1].replace("http://", "https://")}></embed>
-
                 }
             </div>
         </Layout>

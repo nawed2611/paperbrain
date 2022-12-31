@@ -46,10 +46,10 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-12 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <img src={`${user.picture}`} alt="user-profile-picture" className="rounded-full" />
+            <img src={`${user.picture}`} alt="user-profile-picture" className="rounded-full w-16 h-16" />
             <div className="text-center space-y-2 sm:text-left">
               <div className="space-y-0.5 mb-2">
-                <p className="text-lg text-black font-semibold">
+                <p className="text- text-black font-semibold">
                   {user.name}
                 </p>
                 <p className="text-slate-500 font-medium">

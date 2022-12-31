@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { client } from '../../utils/client';
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -30,9 +30,8 @@ const SearchResults = () => {
     }
 
     useEffect(() => {
-        console.log(slug);
         setLoading(true);
-        axios.post(`https://flask-production-68e8.up.railway.app` + '/', { query: slug })
+        client.post('/', { query: slug })
             .then(res => {
                 setResponse(res.data.papers);
                 toast.success(`Results for ${slug} found!`);
