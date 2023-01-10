@@ -6,12 +6,17 @@ import { motion } from "framer-motion"
 import Layout from '../layout';
 import { toast } from 'react-hot-toast';
 
-
 const ViewPdf = () => {
     const router = useRouter();
-    const [response, setResponse] = useState('');
+    const [response, setResponse] = useState({
+        paper_title: '',
+        paper_summary: '',
+        paper_url: '',
+    });
     const [response2, setResponse2] = useState({ answer: '' });
-    const { slug } = router.query;
+    let { slug } = router.query;
+    slug = slug?.toString();
+    slug = slug?.replace(/-/g, ' ');
     const [loading, setLoading] = useState(false);
     let currentString = '';
     const [explainQuery, setExplainQuery] = useState('');
@@ -20,8 +25,7 @@ const ViewPdf = () => {
     useEffect(() => {
         client.post('/', { query: slug })
             .then(res => {
-                console.log(res.data);
-                setResponse(res.data.papers);
+                setResponse(res.data.papers[0]);
             })
             .catch(err => {
                 console.error(err)
@@ -81,7 +85,7 @@ const ViewPdf = () => {
                 </div>
                 {
                     response ?
-                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response[0][1].replace("http://", "https://")}></embed>
+                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response?.paper_url}></embed>
                         :
                         <div className="flex flex-col items-center justify-center h-screen w-[50vw]">
                             Loading PDF from Arxiv...

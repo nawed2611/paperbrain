@@ -11,7 +11,6 @@ export default function Home() {
 
   useEffect(() => {
     if (user) {
-      console.log(user);
       setActive(true);
       toast.success(`Welcome! ${user.name}`);
     }
@@ -21,7 +20,7 @@ export default function Home() {
     <Layout className='overflow-hidden'>
       <div className="flex flex-col h-screen items-center justify-center">
         <Toaster />
-        <div className='flex text-gray-900 mb-20 gap-4'>
+        <div className='flex text-gray-900 mb-10 gap-4'>
           <Link className='hover:scale-105 hover:underline transition-all' href="https://github.com/nawed2611/metrohacks">Code</Link>
         </div>
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
@@ -42,6 +41,13 @@ export default function Home() {
               </Link>
             </button>
         }
+
+        <footer className='absolute bottom-4'>
+          <p className='text-sm'>Follow
+            <a className='hover:underline text-blue-600 hover:text-blue-600 transition-all' href="https://twitter.com/nawed2611"> @nawed2611</a> for updates
+          </p>
+        </footer>
+
       </div>
     </Layout>
   )
