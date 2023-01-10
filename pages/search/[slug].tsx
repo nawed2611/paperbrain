@@ -80,8 +80,8 @@ const SearchResults = () => {
                             }
                             {
                                 loading &&
-                                <div className='h-64'>
-                                    Loading...
+                                <div className='flex flex-col items-center justify-center'>
+                                    <h1 className='font-bold text-2xl'>Loading...</h1>
                                 </div>
                             }
                         </div>
