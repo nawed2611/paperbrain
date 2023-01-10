@@ -25,14 +25,22 @@ export default function Home() {
           <Link className='hover:scale-105 hover:underline transition-all' href="https://github.com/nawed2611/metrohacks">Code</Link>
         </div>
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
-          <h1 className="font-bold text-8xl">ReSearch</h1>
+          <h1 className="font-bold text-8xl">PaperBrain</h1>
         </RoughNotation>
         <p className="mt-4 font-extralight text-xl">Exploring your study papers has never been easier!</p>
         {
           !active ?
-            <Link className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all' scroll={false} href='/api/auth/login'>Lets Get Started</Link>
+            <button className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
+              <Link href='/api/auth/login'>
+                Lets Get Started
+              </Link>
+            </button>
             :
-            <Link className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all' scroll={false} href='/search'>Continue To Read!</Link>
+            <button className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
+              <Link href='/search'>
+                Continue To Read!
+              </Link>
+            </button>
         }
       </div>
     </Layout>

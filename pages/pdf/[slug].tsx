@@ -53,7 +53,7 @@ const ViewPdf = () => {
 
     return (
         <Layout >
-            <div className='flex items-center justify-center'>
+            <div className='flex'>
                 <div className='flex flex-col w-[50vw] h-screen'>
                     <h1 className='text-2xl border-b-2 border-black font-bold m-2 p-2'>{slug}</h1>
 
@@ -80,8 +80,12 @@ const ViewPdf = () => {
                     </motion.div>
                 </div>
                 {
-                    response &&
-                    <embed id="iframe-text" className="rounded h-screen w-[50%]" src={response[0][1].replace("http://", "https://")}></embed>
+                    response ?
+                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response[0][1].replace("http://", "https://")}></embed>
+                        :
+                        <div className="flex flex-col items-center justify-center h-screen w-[50vw]">
+                            Loading PDF from Arxiv...
+                        </div>
                 }
             </div>
         </Layout>

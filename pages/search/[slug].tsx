@@ -53,7 +53,9 @@ const SearchResults = () => {
                     <div className='border border-black-2'>
                         <div className='p-3 w-[30vw] flex flex-col items-center justify-center'>
                             <h2 className='font-bold text-2xl capitalize m-2'>Search Results for: {slug}</h2>
-                            <Link className="border rounded border-black p-1 px-4 hover:bg-gray-50 transition-all hover:scale-105" href="/search">Go Back</Link>
+                            <button className="border rounded border-black p-1 px-4 hover:bg-gray-50 transition-all hover:scale-105">
+                                <Link  href="/search">Go Back</Link>
+                            </button>
                         </div>
                         <div className='w-96 h-[83vh] overflow-y-scroll border-2 flex flex-col items-center'>
                             {
