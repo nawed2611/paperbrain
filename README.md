@@ -1,5 +1,5 @@
 <h1 align="center">
-ReSearch
+PaperBrain
 </h1>
 
 Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
