@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <Layout className='overflow-hidden'>
-      <div className="flex flex-col h-screen items-center justify-center">
+      <div className="flex flex-col gradient h-screen items-center justify-center">
         <Toaster />
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
           <h1 className="font-bold text-8xl">PaperBrain</h1>

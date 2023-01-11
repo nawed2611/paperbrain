@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <Layout>
-      <div className='flex h-screen items-center justify-center w-screen'>
+      <div className='flex gradient h-screen items-center justify-center w-screen'>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -35,9 +35,9 @@ const Search = () => {
             </div>
           </RoughNotation>
 
-          <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-1 mt-6 items-center justify-center">
-            <input type="text" className="bg-white text-green-600 focus:outline-none px-4 w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
-            <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
+          <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-2 mt-6 items-center justify-center">
+            <input type="text" className="text-green-600 focus:outline-none px-4 bg-transparent w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
+            <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-gray-800 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
           </form>
         </motion.div>
 

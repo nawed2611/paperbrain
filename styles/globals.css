@@ -44,3 +44,7 @@ html {
 .scrollbarHide::-webkit-scrollbar {
   display: none;
 }
+.gradient {
+  background: linear-gradient(#ffffff, #e0f5cc);
+  
+}
