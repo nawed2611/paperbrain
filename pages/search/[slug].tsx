@@ -137,14 +137,16 @@ const SearchResults = () => {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ duration: 0.2 }}
                                             className="absolute flex flex-col top-14 right-12 mt-2 rounded-md shadow-xl py-1">
-                                            <Link className='flex items-center bg-white hover:bg-gray-50 m-1 p-2 px-4 text-sm text-center' href="/profile">
+                                            {/* <Link className='flex items-center bg-white hover:bg-gray-50 m-1 p-2 px-4 text-sm text-center' href="/profile">
                                                 <AiOutlineUser className='mr-2' />Profile
-                                            </Link>
+                                            </Link> */}
                                             <Link className='flex items-center bg-white hover:bg-gray-50 m-1 p-2 px-4 text-sm text-center' href="/api/auth/logout">
                                                 <AiOutlineLogout className='mr-2' />Logout
                                             </Link>
+                                            {/* <Link className='flex items-center bg-white hover:bg-gray-50 m-1 p-2 px-4 text-sm text-center' href="/api/auth/logout">
+                                                <AiOutlineLogout className='mr-2' />Upload Papers
+                                            </Link> */}
                                         </motion.div>
-
                                     }
                                 </div>
                             </div>

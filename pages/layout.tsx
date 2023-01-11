@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 40 },
@@ -9,16 +10,22 @@ const variants = {
 
 const Layout = ({ children }: any) => {
     return (
-        <motion.main
-            variants={variants} // Pass the variant object into Framer Motion 
-            initial="hidden" // Set the initial state to variants.hidden
-            animate="enter" // Animated state to variants.enter
-            exit="exit" // Exit state (used later) to variants.exit
-            transition={{ type: 'linear' }} // Set the transition to linear
-            className=""
-        >
-            {children}
-        </motion.main>
+        <div>
+            <Head>
+                <title>Paper Brain</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <motion.main
+                variants={variants} // Pass the variant object into Framer Motion 
+                initial="hidden" // Set the initial state to variants.hidden
+                animate="enter" // Animated state to variants.enter
+                exit="exit" // Exit state (used later) to variants.exit
+                transition={{ type: 'linear' }} // Set the transition to linear
+                className=""
+            >
+                {children}
+            </motion.main>
+        </div>
     )
 }
 
