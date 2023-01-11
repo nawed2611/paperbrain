@@ -31,7 +31,7 @@ const Search = () => {
           <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#fff000' show={true}>
             <div className='p-8'>
               <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
-              <h1 className='text-2xl text-gray-500 font-bold'>We've got you covered.</h1>
+              <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
             </div>
           </RoughNotation>
 
