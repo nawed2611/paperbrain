@@ -85,7 +85,7 @@ const ViewPdf = () => {
                 </div>
                 {
                     response ?
-                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response?.paper_url}></embed>
+                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response?.paper_url.replace("http://", "https://")}></embed>
                         :
                         <div className="flex flex-col items-center justify-center h-screen w-[50vw]">
                             Loading PDF from Arxiv...
