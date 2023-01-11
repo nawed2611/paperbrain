@@ -36,7 +36,7 @@ const Search = () => {
           </RoughNotation>
 
           <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-1 mt-6 items-center justify-center">
-            <input type="text" className="bg-white mt-2 text-green-600 focus:outline-none px-4 w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
+            <input type="text" className="bg-white text-green-600 focus:outline-none px-4 w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
             <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
           </form>
         </motion.div>
