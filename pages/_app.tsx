@@ -2,11 +2,25 @@
 import "../styles/globals.css";
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0';
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: any) {
   return (
     <UserProvider>
       <Component {...pageProps} />
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-2BCTY02QHH" />
+      <Script
+        id='google-analytics'
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2BCTY02QHH', {
+          page_path: window.location.pathname,
+          });`,
+        }}
+      />
     </UserProvider>
   );
 }
