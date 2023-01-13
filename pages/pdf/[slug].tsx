@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
 import { toast } from 'react-hot-toast';
+import { RoughNotation } from 'react-rough-notation';
 
 const ViewPdf = () => {
     const router = useRouter();
@@ -57,10 +58,11 @@ const ViewPdf = () => {
 
     return (
         <Layout >
-            <div className='flex'>
+            <div className='flex gradient'>
                 <div className='flex flex-col w-[50vw] h-screen'>
-                    <h1 className='text-2xl border-b-2 border-black font-bold m-2 p-2'>{slug}</h1>
-
+                    <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
+                        <h1 className='text-2xl border-b-2 border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
+                    </RoughNotation>
                     <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
@@ -69,7 +71,7 @@ const ViewPdf = () => {
                         <p className="text-sm">Copy paste text here</p>
                         <form onSubmit={handleQuerySubmit} className='w-full mt-8 flex flex-col items-center justify-center'>
                             <textarea rows={6} className='rounded-md focus:outline-none border-2 py-4 px-8 w-[80%]' value={explainQuery} onChange={(e) => setExplainQuery(e.target.value)} placeholder='Enter Your Query Here...' />
-                            <button className='border border-black hover:bg-slate-100 rounded-md p-2 px-4 m-2'>Explain</button>
+                            <button className='p-2 text-white text-md text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>Explain</button>
                         </form>
                         {
                             response2 &&
@@ -79,19 +81,20 @@ const ViewPdf = () => {
                         }
                         {
                             loading &&
-                            <div className="m-4 p-4">Loading Explanation through Open AI...</div>
+                            <div className="m-4 p-4">Loading ...</div>
                         }
                     </motion.div>
                 </div>
                 {
-                    response ?
-                        <embed id="iframe-text" className="rounded h-screen w-[50vw]" src={response?.paper_url.replace("http://", "https://")}></embed>
+                    response.paper_url ?
+                        <embed id="iframe-text" className="z-100 rounded h-screen w-[60vw]" src={response?.paper_url.replace("http://", "https://")}></embed>
                         :
-                        <div className="flex flex-col items-center justify-center h-screen w-[50vw]">
-                            Loading PDF from Arxiv...
+                        <div className="absolute right-64 top-[50%] items-center justify-center">
+                            Loading PDF...
                         </div>
                 }
             </div>
+
         </Layout>
     )
 }

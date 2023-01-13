@@ -26,13 +26,13 @@ export default function Home() {
         <p className="mt-4 font-extralight text-xl">Exploring your study papers has never been easier!</p>
         {
           !active ?
-            <button className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
+            <button className='p-2 text-white text-md text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
               <Link href='/api/auth/login'>
                 Lets Get Started
               </Link>
             </button>
             :
-            <button className='p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
+            <button className='p-2 text-white text-md text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
               <Link href='/search'>
                 Continue To Read!
               </Link>
