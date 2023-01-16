@@ -2,7 +2,7 @@
   "name": "metrohacks",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://arxiv.org/pdf/",
+  "proxy": "http://arxiv.org/pdf/", 
   "scripts": {
     "dev": "next dev",
     "build": "next build",
