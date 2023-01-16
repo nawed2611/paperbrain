@@ -22,6 +22,10 @@ export default function Upload() {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
+        if (file.type !== 'application/pdf') {
+            toast.error('Please upload a pdf file');
+            return;
+        }
         // Create a root reference
         const storageRef = ref(storage, 'pdfs/' + file.name + Date.now());
 

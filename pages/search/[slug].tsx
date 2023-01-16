@@ -8,7 +8,7 @@ import Layout from '../layout';
 import { useUser } from '@auth0/nextjs-auth0';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { BsArrowReturnLeft } from 'react-icons/bs';
-import { AiOutlineClose, AiFillRead, AiFillFilePdf, AiOutlineMenu, AiOutlineLogout, AiOutlineSearch, AiOutlineUpload } from 'react-icons/ai';
+import { AiFillRead, AiFillFilePdf, AiOutlineLogout, AiOutlineSearch, AiOutlineUpload } from 'react-icons/ai';
 import { toast, Toaster } from 'react-hot-toast';
 import { RoughNotation } from "react-rough-notation";
 
@@ -42,6 +42,16 @@ const SearchResults = () => {
 
     useEffect(() => {
         setLoading(true);
+
+        if (!slug) return;
+
+        if (!user) {
+            toast.error('You are not logged in!');
+            setLoading(false);
+            router.push('/');
+            return;
+        }
+
         client.post('/', { query: slug })
             .then(res => {
                 setResponse(res.data.papers);

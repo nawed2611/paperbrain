@@ -5,10 +5,12 @@ import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
 import { toast } from 'react-hot-toast';
+import { useUser } from '@auth0/nextjs-auth0';
 import { RoughNotation } from 'react-rough-notation';
 
 const ViewPdf = () => {
     const router = useRouter();
+    const { user } = useUser();
     const [response, setResponse] = useState({
         paper_title: '',
         paper_summary: '',
@@ -24,6 +26,11 @@ const ViewPdf = () => {
 
 
     useEffect(() => {
+        if (!user) {
+            router.push('/');
+            return;
+        }
+
         client.post('/', { query: slug })
             .then(res => {
                 setResponse(res.data.papers[0]);

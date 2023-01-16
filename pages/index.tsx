@@ -34,7 +34,7 @@ export default function Home() {
             :
             <button className='p-2 text-white text-md text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
               <Link href='/search'>
-                Continue To Read!
+                Start Reading!
               </Link>
             </button>
         }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -20,6 +20,14 @@ const Search = () => {
     e.preventDefault();
     router.push(`/search/${query}`);
   }
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/');
+      return;
+    }
+  }, [user, router]);
+
 
   return (
     <Layout>
