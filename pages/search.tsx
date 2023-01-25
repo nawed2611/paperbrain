@@ -31,26 +31,7 @@ const Search = () => {
 
   return (
     <Layout>
-      <div className='flex gradient h-screen items-center justify-center w-screen'>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className='flex flex-col items-center p-12'>
-
-          <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#fff000' show={true}>
-            <div className='p-8'>
-              <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
-              <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
-            </div>
-          </RoughNotation>
-
-          <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-2 mt-6 items-center justify-center">
-            <input type="text" className="text-green-600 focus:outline-none px-4 bg-transparent w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
-            <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-gray-800 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
-          </form>
-        </motion.div>
-
+      <div className='flex gradient h-screen w-screen'>
         {
           user &&
           <motion.div initial={{ opacity: 0, scale: 0.5 }}
@@ -98,6 +79,28 @@ const Search = () => {
             </div>
           </motion.div>
         }
+
+        <div className='flex items-center justify-center w-full'>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className='flex flex-col items-center p-12'>
+
+            <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#cdf5d9' show={true}>
+              <div className='p-8'>
+                <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
+                <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
+              </div>
+            </RoughNotation>
+
+            <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-2 mt-6 items-center justify-center">
+              <input type="text" className="text-green-600 focus:outline-none px-4 bg-transparent w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
+              <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-gray-800 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
+            </form>
+          </motion.div>
+        </div>
       </div >
     </Layout>
   )
