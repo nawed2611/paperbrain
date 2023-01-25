@@ -7,6 +7,7 @@ import Layout from '../layout';
 import { toast } from 'react-hot-toast';
 import { useUser } from '@auth0/nextjs-auth0';
 import { RoughNotation } from 'react-rough-notation';
+import Chatbot from '../chatbot';
 
 const ViewPdf = () => {
     const router = useRouter();
@@ -70,7 +71,7 @@ const ViewPdf = () => {
                     <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
                         <h1 className='text-2xl border-b-2 border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
                     </RoughNotation>
-                    <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                    {/* <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
                         className='flex flex-col items-center justify-center w-[100%] h-[80%]'>
@@ -90,7 +91,8 @@ const ViewPdf = () => {
                             loading &&
                             <div className="m-4 p-4">Loading ...</div>
                         }
-                    </motion.div>
+                    </motion.div> */}
+                    <Chatbot />
                 </div>
                 {
                     response.paper_url ?

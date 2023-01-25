@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { BsArrowReturnRight } from "react-icons/bs";
+import { client } from "../utils/client";
 
 interface Chat {
   message: string;
@@ -24,13 +27,13 @@ const Chatbot: React.FC = () => {
 
     setChats([...chats, { message: input, author: "user" }]);
 
-    axios
-      .post("http://127.0.0.1:5000/chat", {
+    client
+      .post("explain", {
         message: input,
       })
       .then((res) => {
-        console.log("ass", res.data.Answer);
-        const Answer = res.data.Answer;
+        console.log(res);
+        const Answer = res.data.answer;
         setChats([
           ...chats,
           { message: input, author: "user" },
@@ -39,7 +42,7 @@ const Chatbot: React.FC = () => {
         setInput("");
       })
       .catch((error) => {
-        console.log("bruh", error);
+        console.log("lol", error);
       });
   };
 
@@ -47,26 +50,24 @@ const Chatbot: React.FC = () => {
     <div className='mx-2'>
       <div
         ref={chatContainerRef}
-        className='max-h-[70vh] rounded-lg shadow-lg mx-2 overflow-y-auto scroll-smooth'
+        className='max-h-[70vh]  rounded-lg h-full mx-2 overflow-y-auto scroll-smooth'
       >
         {chats.map((chat, index) => (
           <div
             key={index}
-            className={`py-0.5 rounded-lg mx-2.5 my-2 ${
-              chat.author === "user" ? "text-right" : "text-left"
-            }`}
+            className={`py-0.5 rounded-lg mx-2.5 my-2 ${chat.author === "user" ? "text-right" : "text-left w-[80%]"
+              }`}
           >
             <span
-              className={`inline-block px-2 py-1 leading-8 text-m text-white rounded-lg ${
-                chat.author === "user" ? "bg-green-600" : "bg-[#147efb]"
-              }`}
+              className={`inline-block px-2 py-1 leading-8 text-m text-white rounded-lg ${chat.author === "user" ? "bg-green-500" : "bg-[#147efb]"
+                }`}
             >
               {chat.message}
             </span>
           </div>
         ))}
       </div>
-      <div className='bg-green-600 mx-4 rounded-lg z-1 p-2 drop-shadow-md w-[42vw] bottom-1 absolute'>
+      <div className='bg-green-500 mx-4 rounded-lg z-1 p-2 drop-shadow-md w-[42vw] bottom-1 absolute'>
         <form onSubmit={handleSubmit} className=''>
           <div className='px-4 py-2 flex items-center text-white'>
             <input
@@ -76,26 +77,13 @@ const Chatbot: React.FC = () => {
               onChange={(event) =>
                 setInput(
                   event.target.value.charAt(0).toUpperCase() +
-                    event.target.value.slice(1)
+                  event.target.value.slice(1)
                 )
               }
-              className='bg-inherit border-none outline-none text-white w-full'
+              className='bg-inherit border-none outline-none text-white w-full placeholder:text-white'
             />
             <button type='submit' className='ml-2'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='bg-gray-700'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-6 h-6'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5'
-                />
-              </svg>
+              <BsArrowReturnRight />
             </button>
           </div>
         </form>
