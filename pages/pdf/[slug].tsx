@@ -14,19 +14,16 @@ import Chatbot from '../chatbot';
 
 const ViewPdf = () => {
     const router = useRouter();
-    const { user } = useUser();
     const [response, setResponse] = useState({
         paper_title: '',
         paper_summary: '',
         paper_url: '',
     });
-    const [response2, setResponse2] = useState({ answer: '' });
     let { slug } = router.query;
     slug = slug?.toString();
     slug = slug?.replace(/-/g, ' ');
     const [pageNumber, setPageNumber] = useState(1);
     const [pdfURL, setPDFURL] = useState('');
-    const [selectedText, setSelectedText] = useState('');
 
 
     const onDocumentLoadSuccess = ({ numPages }: any) => {
@@ -56,7 +53,7 @@ const ViewPdf = () => {
                     <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
                         <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
                     </RoughNotation>
-                    <Chatbot />
+                    <Chatbot name="arxiv" />
                 </motion.div>
 
                 <motion.div className='h-[99vh] rounded-md w-[60vw] mt-2 overflow-y-scroll overflow-x-hidden'>

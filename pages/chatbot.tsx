@@ -9,9 +9,12 @@ interface Chat {
   author: string;
 }
 
-const Chatbot: React.FC = () => {
+const Chatbot = (name: {
+  name: string;
+}) => {
   const [input, setInput] = useState("");
   const [chats, setChats] = useState<Chat[]>([]);
+  let url = name.name == "explain" ? "/chat" : "/explain";
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -27,12 +30,10 @@ const Chatbot: React.FC = () => {
 
     setChats([...chats, { message: input, author: "user" }]);
 
-    client
-      .post("explain", {
-        message: input,
-      })
+    client.post(url, {
+      message: input,
+    })
       .then((res) => {
-
         const Answer = res.data.answer;
         setChats([
           ...chats,

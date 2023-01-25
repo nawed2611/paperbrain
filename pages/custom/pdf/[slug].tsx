@@ -29,8 +29,6 @@ export default function Pdf() {
       .catch((err) => {
         console.error(err);
       });
-
-
   }, [slug, pdfURL]);
 
   return (
@@ -52,7 +50,7 @@ export default function Pdf() {
             </div>
           </RoughNotation>
 
-          <Chatbot />
+          <Chatbot name="explain" />
         </div>
 
         <motion.div className='h-[99vh] rounded-md w-[50vw] overflow-y-scroll overflow-x-hidden'>
