@@ -2,7 +2,7 @@
   "name": "metrohacks",
   "version": "0.1.0",
   "private": true,
-  "proxy" : "https://firebasestorage.googleapis.com/v0/b/",
+  "proxy": "https://firebasestorage.googleapis.com/v0/b/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -22,6 +22,7 @@
     "next": "^13.1.1",
     "pdfjs-dist": "^3.2.146",
     "react": "18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",

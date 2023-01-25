@@ -6,11 +6,11 @@ import { storage } from '../config/firebase';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AiOutlineArrowDown, AiOutlineSearch, AiOutlineLogout, AiOutlineUpload } from 'react-icons/ai';
+import { AiOutlineLogout, AiOutlineUpload } from 'react-icons/ai';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { RoughNotation } from "react-rough-notation";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import axios from 'axios';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import Layout from './layout';
 
 export default function Upload() {
@@ -19,6 +19,7 @@ export default function Upload() {
     const router = useRouter();
     const { user } = useUser();
     const [isOpen, setIsOpen] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -36,19 +37,10 @@ export default function Upload() {
         uploadTask.on('state_changed', (snapshot) => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
-            switch (snapshot.state) {
-                case 'paused':
-                    console.log('Upload is paused');
-                    break;
-                case 'running':
-                    console.log('Upload is running');
-                    break;
-            }
+
+            setProgress(progress);
         }
             , (error) => {
-                // A full list of error codes is available at
-                // https://firebase.google.com/docs/storage/web/handle-errors
                 switch (error.code) {
                     case 'storage/unauthorized':
                         // User doesn't have permission to access the object
@@ -57,20 +49,15 @@ export default function Upload() {
                         // User canceled the upload
                         break;
 
-                    // ...
-
                     case 'storage/unknown':
                         // Unknown error occurred, inspect error.serverResponse
                         break;
                 }
             }
             , () => {
-                // Upload completed successfully, now we can get the download URL
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('File available at', downloadURL);
                     toast.success('File uploaded successfully!');
-
-                    toast.loading('Processing your document...');
 
                     router.push(`/custom/pdf/${downloadURL.replace('https://firebasestorage.googleapis.com/v0/b/legal-ai-8ebe8.appspot.com/o/pdfs%2', '')}`);
                 });
@@ -150,12 +137,23 @@ export default function Upload() {
                             file && (
                                 <button
                                     type='submit'
-                                    className='flex items-center gap-x-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded'>
+                                    className='flex items-center gap-x-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded'>
                                     <span>Upload</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </button>)
+                        }
+                        {
+                            progress > 0 && (
+                                <CircularProgressbar className='absolute bottom-32 w-24 h-24'
+                                    styles={buildStyles({
+                                        textSize: '10px',
+                                        pathColor: '#8beb86',
+                                    })}
+
+                                    value={Math.floor(progress)} text={`${Math.floor(progress)}%`} />
+                            )
                         }
                     </form>
                 </div>
