@@ -4,6 +4,8 @@ import { RoughNotation } from "react-rough-notation";
 import Link from "next/link";
 import Layout from './layout';
 import toast, { Toaster } from 'react-hot-toast';
+import Image from 'next/image';
+import Logo from '../public/logo.png';
 
 export default function Home() {
   const { user } = useUser();
@@ -19,6 +21,9 @@ export default function Home() {
   return (
     <Layout className='overflow-hidden'>
       <div className="flex flex-col gradient h-screen items-center justify-center">
+        <div className='m-6'>
+          <Image src={Logo} className="rounded" alt="PaperBrain" width={64} height={64} />
+        </div>
         <Toaster />
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>
           <h1 className="font-bold text-8xl">PaperBrain</h1>
@@ -41,10 +46,9 @@ export default function Home() {
 
         <footer className='absolute bottom-4'>
           <p className='text-sm'>Follow
-            <a className='hover:underline text-blue-600 hover:text-blue-600 transition-all' href="https://twitter.com/nawed2611"> @nawed2611</a> for updates
+            <a className='hover:underline text-blue-600 hover:text-blue-600 transition-all' href="https://twitter.com/__paperbrain"> @__paperbrain</a> for updates
           </p>
         </footer>
-
       </div>
     </Layout>
   )

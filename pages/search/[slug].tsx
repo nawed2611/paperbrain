@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { client } from '../../utils/client';
+import axios from 'axios';
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -8,7 +9,8 @@ import Layout from '../layout';
 import { useUser } from '@auth0/nextjs-auth0';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { BsArrowReturnLeft } from 'react-icons/bs';
-import { AiFillRead, AiFillFilePdf, AiOutlineLogout, AiOutlineSearch, AiOutlineUpload } from 'react-icons/ai';
+import { BiArrowBack } from 'react-icons/bi';
+import { AiFillRead, AiFillFilePdf, AiOutlineLogout, AiOutlineStar, AiOutlineSearch, AiOutlineUpload } from 'react-icons/ai';
 import { toast, Toaster } from 'react-hot-toast';
 import { RoughNotation } from "react-rough-notation";
 
@@ -74,6 +76,26 @@ const SearchResults = () => {
         router.push(`/search/${newQuery}`);
     }
 
+    const handleStarred = (e: any) => {
+        const { paper_title, paper_summary, paper_url } = e;
+        axios.post('http://localhost:8800/api/users/addPaper', {
+            username: user?.name,
+            email: user?.email,
+            paperName: paper_title,
+            paperAbstract: paper_summary,
+            paperURL: paper_url,
+            starred: true,
+        })
+            .then(res => {
+                toast.success('Paper added to starred!');
+            })
+            .catch(err => {
+                toast.error('Something went wrong!');
+                console.error(err);
+            })
+    }
+
+
     return (
         <Layout className='overflow-hidden'>
             <div className='flex gradient'>
@@ -83,11 +105,11 @@ const SearchResults = () => {
                     <div className='border-2 border-green-100'>
                         <div className='p-3 flex flex-col gap-y-2 items-center justify-center'>
                             <h2 className='font-bold text-xl capitalize m-2'>Papers for: {slug}</h2>
-                            <button className="p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 px-4 hover:scale-105 transition-all">
-                                <Link href="/search" className='flex items-center gap-x-2'><AiOutlineSearch />Go Back to Search</Link>
+                            <button className="p-2 text-sm text-center rounded-lg border border-green-700 cursor-pointer bg-white-700 px-4 hover:scale-105 transition-all">
+                                <Link href="/search" className='flex items-center gap-x-2'><BiArrowBack />Go Back to Search</Link>
                             </button>
                         </div>
-                        <div className='h-[84vh] w-[33vw] m-2 overflow-x-hidden scrollbarHide flex flex-col items-center'>
+                        <div className='h-[84vh] w-[28vw] m-2 overflow-x-hidden scrollbarHide flex flex-col items-center'>
                             {
                                 response.map((paper: any) => {
                                     return (
@@ -122,7 +144,7 @@ const SearchResults = () => {
                             transition={{ duration: 0.5 }}
                             className="border-b border-green-200 w-full z-10 flex items-center justify-between">
 
-                            <form onSubmit={handleSubmit} className="flex rounded-full border-2 border-green-300 p-1 ml-12 items-center justify-center">
+                            <form onSubmit={handleSubmit} className="flex rounded-full border border-green-300 p-1 ml-12 items-center justify-center">
                                 <input type="text" className=" text-green-600 focus:outline-none px-4 placeholder:text-gray-500 w-[40vw]" value={newQuery} onChange={(e) => setNewQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
                                 <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-slate-700 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
                             </form>
@@ -183,8 +205,9 @@ const SearchResults = () => {
                                     </RoughNotation>
                                     <p className='w-[90%] font-bold underline text-xl mt-12'>Abstract</p>
                                     <p className='w-[90%] text-base mt-2'>{modalContent?.paper_summary}</p>
-                                    <div>
-                                        <button onClick={() => handleClick(modalContent)} className='items-center flex gap-x-2 p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 mt-4 m-2 px-4 hover:scale-105 transition-all'><AiFillFilePdf />View PDF</button>
+                                    <div className='w-1/2 flex justify-center items-center mt-4'>
+                                        <button onClick={() => handleClick(modalContent)} className='items-center flex gap-x-2 p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 mt-4 m-2 px-4 hover:scale-105 transition-all w-32'><AiFillFilePdf />View PDF</button>
+                                        {/* <button onClick={() => handleStarred(modalContent)} className='items-center flex gap-x-2 p-2 text-green-700 border-green-700 border text-sm text-center rounded-lg hover:bg-gray-50 cursor-pointer mt-4 m-2 px-4 hover:scale-105 transition-all w-32'><AiOutlineStar />Star</button> */}
                                     </div>
                                 </div>
                             </motion.div>

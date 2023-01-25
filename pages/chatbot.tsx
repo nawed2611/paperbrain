@@ -32,7 +32,7 @@ const Chatbot: React.FC = () => {
         message: input,
       })
       .then((res) => {
-        console.log(res);
+
         const Answer = res.data.answer;
         setChats([
           ...chats,
@@ -42,7 +42,7 @@ const Chatbot: React.FC = () => {
         setInput("");
       })
       .catch((error) => {
-        console.log("lol", error);
+        console.log(error);
       });
   };
 
@@ -50,7 +50,7 @@ const Chatbot: React.FC = () => {
     <div className='mx-2'>
       <div
         ref={chatContainerRef}
-        className='max-h-[70vh]  rounded-lg h-full mx-2 overflow-y-auto scroll-smooth'
+        className='h-[70vh]  rounded-lg mx-2 overflow-y-auto scroll-smooth'
       >
         {chats.map((chat, index) => (
           <div
@@ -59,7 +59,7 @@ const Chatbot: React.FC = () => {
               }`}
           >
             <span
-              className={`inline-block px-2 py-1 leading-8 text-m text-white rounded-lg ${chat.author === "user" ? "bg-green-500" : "bg-[#147efb]"
+              className={`inline-block px-2 py-1 leading-8 text-m text-white rounded-lg ${chat.author === "user" ? "bg-green-500" : "bg-blue-500"
                 }`}
             >
               {chat.message}
@@ -73,7 +73,7 @@ const Chatbot: React.FC = () => {
             <input
               type='text'
               value={input}
-              placeholder='Ask anything about your document...'
+              placeholder='Ask about the paper here...'
               onChange={(event) =>
                 setInput(
                   event.target.value.charAt(0).toUpperCase() +
