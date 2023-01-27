@@ -90,14 +90,14 @@ const Search = () => {
 
             <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#cdf5d9' show={true}>
               <div className='p-8'>
-                <h1 className='text-4xl text-gray-900 font-bold'>Looking for Papers?</h1>
+                <h1 className='text-4xl text-gray-900 font-bold'>Looking for Research Papers?</h1>
                 <h1 className='text-2xl text-gray-500 font-bold'>We have got you covered.</h1>
               </div>
             </RoughNotation>
 
             <form onSubmit={handleSubmit} className="flex rounded-full border-2 p-2 mt-6 items-center justify-center">
-              <input type="text" className="text-green-600 focus:outline-none px-4 bg-transparent w-[24vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
-              <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-gray-800 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
+              <input type="text" className="text-green-600 focus:outline-none px-4 bg-transparent w-[30vw]" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="eg: GPT-3 Stable Diffusion etc..." />
+              <button className="flex items-center hover:scale-105 p-2 transition-all rounded-full  hover:bg-green-900 hover:text-slate-50" type='submit'><AiOutlineSearch size={21} /></button>
             </form>
           </motion.div>
         </div>
