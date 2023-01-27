@@ -5,8 +5,8 @@
 
 </h1>
 
-Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
-Link - [PaperBrain](https://www.paperbrain.study)
+[YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
+[PaperBrain](https://www.paperbrain.study)
 
 ## About
 
