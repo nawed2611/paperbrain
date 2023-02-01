@@ -4,12 +4,13 @@ import { client } from '../../utils/client';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion"
 import Layout from '../layout';
-import { toast } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import { useUser } from '@auth0/nextjs-auth0';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { Document, Outline, Page, pdfjs } from 'react-pdf';
 import { RoughNotation } from 'react-rough-notation';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+
 import Chatbot from '../chatbot';
 
 const ViewPdf = () => {
@@ -48,15 +49,23 @@ const ViewPdf = () => {
 
     return (
         <Layout >
+
             <motion.div className='flex gradient'>
                 <motion.div className='flex flex-col w-[50vw] h-screen'>
                     <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
                         <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
                     </RoughNotation>
-                    <Chatbot name="arxiv" />
+                    <motion.div className='h-[78vh] overflow-y-scroll scroll-smooth'>
+
+                        {
+                            response.paper_title && <h1 className='border-2 border-green-200 bg-white m-4 p-2 pb-6'><strong>Abstract - </strong>{response.paper_summary}</h1>
+                        }
+
+                        <Chatbot name="arxiv" />
+                    </motion.div>
                 </motion.div>
 
-                <motion.div className='h-[99vh] rounded-md w-[60vw] mt-2 overflow-y-scroll overflow-x-hidden'>
+                <motion.div className='h-[95vh] flex justify-center w-[60vw] mt-6 overflow-y-scroll overflow-x-hidden'>
                     {
                         pdfURL ?
                             <Document file={{
@@ -65,7 +74,6 @@ const ViewPdf = () => {
                                 onLoadSuccess={onDocumentLoadSuccess}
                                 onLoadError={console.error}
                                 loading={<div>Loading PDF...</div>}
-
                             >
                                 {Array.from(new Array(pageNumber), (el, index) => (
                                     <Page
@@ -76,6 +84,7 @@ const ViewPdf = () => {
 
                                     />
                                 ))}
+                                <Outline className="outline" />
                             </Document>
                             :
                             <div className="absolute right-64 top-[50%] items-center justify-center">

@@ -153,7 +153,7 @@ const SearchResults = () => {
                                 <IoIosMoon />
                             </button> */}
                             <div className="flex m-2 p-2 items-center justify-center">
-                                <Image src={`${user.picture}`} alt="user-profile-picture" className="rounded-full" width={32} height={32} />
+                                {/* <Image src={`${user.picture}`} alt="user-profile-picture" className="rounded-full" width={32} height={32} /> */}
                                 <div className="items-center flex p-2 sm:text-left">
                                     <p className="text-center font-semibold">
                                         {user.name}
