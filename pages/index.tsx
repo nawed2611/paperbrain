@@ -22,7 +22,7 @@ export default function Home() {
     <Layout className='overflow-hidden'>
       <div className="flex flex-col gradient h-screen items-center justify-center">
         <div className='m-6'>
-          {/* <Image src={Logo} className="rounded" alt="PaperBrain" width={64} height={64} /> */}
+          <Image src={Logo} className="rounded" alt="PaperBrain" width={64} height={64} />
         </div>
         <Toaster />
         <RoughNotation animationDelay={1000} animationDuration={2000} type="box" show={true}>

@@ -14,6 +14,7 @@ import Image from 'next/image'
 export default function Pdf() {
   const router = useRouter();
   const { slug } = router.query;
+  const [fpath, setFpath] = useState<string>("");
   const pdfURL =
     `https://firebasestorage.googleapis.com/v0/b/legal-ai-8ebe8.appspot.com/o/pdfs%2` +
     slug +
@@ -25,6 +26,7 @@ export default function Pdf() {
     client.post("/getpdf", { pdfURL })
       .then((res) => {
         console.log(res.data);
+        setFpath(res.data.f_path);
       })
       .catch((err) => {
         console.error(err);
@@ -34,7 +36,7 @@ export default function Pdf() {
   return (
     <Layout>
       <div className='flex gradient h-screen'>
-        <div className='flex flex-col w-[50vw] h-screen'>
+        <div className='flex flex-col w-[50vw]'>
           <RoughNotation
             animationDelay={1000}
             animationDuration={2000}
@@ -49,8 +51,8 @@ export default function Pdf() {
               </h1>
             </div>
           </RoughNotation>
+          <Chatbot name="explain" f_path={fpath} />
 
-          <Chatbot name="explain" />
         </div>
 
         <motion.div className='h-[99vh] rounded-md w-[50vw] overflow-y-scroll overflow-x-hidden'>

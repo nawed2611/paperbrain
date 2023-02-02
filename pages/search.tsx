@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from '../public/logo.png';
 import { AiOutlineArrowDown, AiOutlineSearch, AiOutlineLogout, AiOutlineUpload } from 'react-icons/ai';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { RoughNotation } from "react-rough-notation";
@@ -38,7 +39,7 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-4 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            {/* <Image src={`${user.picture}`} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} /> */}
+            <Image src={Logo} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} />
             <div className="text-center flex  items-center space-y-2 sm:text-left">
               <div className="space-y-0.5 mb-2">
                 <p className=" text-black font-semibold">

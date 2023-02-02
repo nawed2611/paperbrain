@@ -12,6 +12,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Layout from './layout';
+import axios from 'axios';
 
 export default function Upload() {
     const [file, setFile] = useState<any>(null);
@@ -58,6 +59,7 @@ export default function Upload() {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('File available at', downloadURL);
                     toast.success('File uploaded successfully!');
+
 
                     router.push(`/custom/pdf/${downloadURL.replace('https://firebasestorage.googleapis.com/v0/b/legal-ai-8ebe8.appspot.com/o/pdfs%2', '')}`);
                 });
@@ -175,4 +177,3 @@ export default function Upload() {
         </Layout>
     )
 }
-

@@ -52,44 +52,30 @@ const ViewPdf = () => {
 
             <motion.div className='flex gradient'>
                 <motion.div className='flex flex-col w-[50vw] h-screen'>
-                    <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
+                    {/* <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}> */}
                         <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
-                    </RoughNotation>
-                    <motion.div className='h-[78vh] overflow-y-scroll scroll-smooth'>
+                    {/* </RoughNotation> */}
+                    <motion.div className='h-[70vh] overflow-y-scroll scroll-smooth'>
 
-                        {
+                        {/* {
                             response.paper_title && <h1 className='border-2 border-green-200 bg-white m-4 p-2 pb-6'><strong>Abstract - </strong>{response.paper_summary}</h1>
-                        }
+                        } */}
 
-                        <Chatbot name="arxiv" />
+                        <Chatbot name="arxiv" f_path="" />
                     </motion.div>
                 </motion.div>
 
-                <motion.div className='h-[95vh] flex justify-center w-[60vw] mt-6 overflow-y-scroll overflow-x-hidden'>
+                <motion.div className='h-[96vh] rounded-md flex justify-center w-[60vw] mt-4 overflow-y-scroll overflow-x-hidden'>
                     {
-                        pdfURL ?
-                            <Document file={{
-                                url: pdfURL
-                            }}
-                                onLoadSuccess={onDocumentLoadSuccess}
-                                onLoadError={console.error}
-                                loading={<div>Loading PDF...</div>}
-                            >
-                                {Array.from(new Array(pageNumber), (el, index) => (
-                                    <Page
-                                        key={`page_${index + 1}`}
-                                        className=""
-                                        pageNumber={index + 1}
-                                        scale={1.2}
-
-                                    />
-                                ))}
-                                <Outline className="outline" />
-                            </Document>
+                        response ?
+                            <embed
+                                src={response.paper_url}
+                                type="application/pdf"
+                                width="100%"
+                                height="100%"
+                            />
                             :
-                            <div className="absolute right-64 top-[50%] items-center justify-center">
-                                Loading PDF...
-                            </div>
+                            <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>Loading...</h1>
                     }
                 </motion.div>
             </motion.div>
