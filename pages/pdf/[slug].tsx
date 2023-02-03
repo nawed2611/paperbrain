@@ -53,7 +53,7 @@ const ViewPdf = () => {
             <motion.div className='flex gradient'>
                 <motion.div className='flex flex-col w-[50vw] h-screen'>
                     {/* <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}> */}
-                        <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
+                    <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
                     {/* </RoughNotation> */}
                     <motion.div className='min-h-[50vh] overflow-y-scroll scroll-smooth'>
 
@@ -67,9 +67,9 @@ const ViewPdf = () => {
 
                 <motion.div className='h-[96vh] rounded-md flex justify-center w-[60vw] mt-4 overflow-y-scroll overflow-x-hidden'>
                     {
-                        response ?
+                        pdfURL ?
                             <embed
-                                src={response.paper_url}
+                                src={pdfURL}
                                 type="application/pdf"
                                 width="100%"
                                 height="100%"
