@@ -33,7 +33,7 @@ export default function Home() {
           !active ?
             <button className='p-2 text-white text-md text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 my-8 px-4 hover:scale-105 transition-all'>
               <Link href='/api/auth/login'>
-                Lets Get Started
+                Lets Get Started2
               </Link>
             </button>
             :
