@@ -210,8 +210,8 @@ const SearchResults = () => {
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className='flex h-[90vh] flex-col overflow-y-scroll justify-center border-green-200 rounded-md items-center m-4 bg-white'>
-                                <div className='flex rounded-md flex-col items-center p-8'>
+                                className='flex h-[90vh] flex-col  overflow-y-scroll border-green-200 rounded-md items-center m-4 bg-white'>
+                                <div className='flex rounded-md h-full flex-col items-center p-8 '>
                                     {/* <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={modal}> */}
                                     <h1 className='font-bold text-3xl p-2 m-2'>{modalContent?.paper_title}</h1>
                                     {/* </RoughNotation> */}

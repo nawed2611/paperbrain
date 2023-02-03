@@ -55,7 +55,7 @@ const ViewPdf = () => {
                     {/* <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}> */}
                         <h1 className='text-2xl border-b border-green-200 font-bold m-4 p-2 pb-6'>{slug}</h1>
                     {/* </RoughNotation> */}
-                    <motion.div className='h-[70vh] overflow-y-scroll scroll-smooth'>
+                    <motion.div className='min-h-[50vh] overflow-y-scroll scroll-smooth'>
 
                         {/* {
                             response.paper_title && <h1 className='border-2 border-green-200 bg-white m-4 p-2 pb-6'><strong>Abstract - </strong>{response.paper_summary}</h1>
