@@ -1,8 +1,12 @@
 <h1 align="center">
-PaperBrain
+ PaperBrain    
+
+ <img src="https://user-images.githubusercontent.com/83456083/215092669-6d56993d-3a7b-441c-8b56-48decb3b32bf.png" width="40" height="40" />
+
 </h1>
 
-Demo - [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
+[YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
+[PaperBrain](https://www.paperbrain.study)
 
 Link - [PaperBrain](https://paperbrain.study/)
 
