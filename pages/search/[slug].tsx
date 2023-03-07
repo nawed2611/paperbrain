@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from '../../public/logo.png';
 import Layout from '../layout';
 import { useUser } from '@auth0/nextjs-auth0';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
@@ -28,6 +29,7 @@ const SearchResults = () => {
         paper_title: '',
         paper_summary: '',
         paper_url: '',
+        paper_authors: [],
     });
     const [response, setResponse] = useState([]);
 
@@ -35,6 +37,10 @@ const SearchResults = () => {
         const url = e.paper_url;
         setPdfs(url);
         setOpenModal(true);
+        // convert e.paper_authors from string to array 
+        e.paper_authors = e.paper_authors.split(',');
+        console.log(e.paper_authors);
+        modalContent.paper_authors = e.paper_authors;
         setModalContent(e);
     }
 
@@ -57,6 +63,7 @@ const SearchResults = () => {
         client.post('/', { query: slug })
             .then(res => {
                 setResponse(res.data.papers);
+                console.log(res.data);
                 toast.success(`Results for ${slug} found!`);
                 setLoading(false);
             })
@@ -76,24 +83,24 @@ const SearchResults = () => {
         router.push(`/search/${newQuery}`);
     }
 
-    const handleStarred = (e: any) => {
-        const { paper_title, paper_summary, paper_url } = e;
-        axios.post('http://localhost:8800/api/users/addPaper', {
-            username: user?.name,
-            email: user?.email,
-            paperName: paper_title,
-            paperAbstract: paper_summary,
-            paperURL: paper_url,
-            starred: true,
-        })
-            .then(res => {
-                toast.success('Paper added to starred!');
-            })
-            .catch(err => {
-                toast.error('Something went wrong!');
-                console.error(err);
-            })
-    }
+    // const handleStarred = (e: any) => {
+    //     const { paper_title, paper_summary, paper_url } = e;
+    //     axios.post('http://localhost:8800/api/users/addPaper', {
+    //         username: user?.name,
+    //         email: user?.email,
+    //         paperName: paper_title,
+    //         paperAbstract: paper_summary,
+    //         paperURL: paper_url,
+    //         starred: true,
+    //     })
+    //         .then(res => {
+    //             toast.success('Paper added to starred!');
+    //         })
+    //         .catch(err => {
+    //             toast.error('Something went wrong!');
+    //             console.error(err);
+    //         })
+    // }
 
 
     return (
@@ -105,9 +112,14 @@ const SearchResults = () => {
                     <div className='border-2 border-green-100'>
                         <div className='p-3 flex flex-col gap-y-2 items-center justify-center'>
                             <h2 className='font-bold text-xl capitalize m-2'>Papers for: {slug}</h2>
-                            <button className="p-2 text-sm text-center rounded-lg border border-green-700 cursor-pointer bg-white-700 px-4 hover:scale-105 transition-all">
-                                <Link href="/search" className='flex items-center gap-x-2'><BiArrowBack />Go Back to Search</Link>
-                            </button>
+                            <div>
+                                <button className="p-2 m-1 text-sm text-center rounded-lg border border-green-700 cursor-pointer bg-white-700 px-4 hover:scale-105 transition-all">
+                                    <Link href="/search" className='flex items-center gap-x-2'><BiArrowBack />Go Back to Search</Link>
+                                </button>
+                                {/* <button className="p-2 m-1 text-sm text-center rounded-lg border border-green-700 cursor-pointer bg-white-700 px-4 hover:scale-105 transition-all">
+                                    <Link href="/search" className='flex items-center gap-x-2'><BiArrowBack />Go Back to Search</Link>
+                                </button> */}
+                            </div>
                         </div>
                         <div className='h-[84vh] w-[28vw] m-2 overflow-x-hidden scrollbarHide flex flex-col items-center'>
                             {
@@ -153,7 +165,7 @@ const SearchResults = () => {
                                 <IoIosMoon />
                             </button> */}
                             <div className="flex m-2 p-2 items-center justify-center">
-                                <Image src={`${user.picture}`} alt="user-profile-picture" className="rounded-full" width={32} height={32} />
+                                <Image src={Logo} alt="user-profile-picture" className="rounded-full" width={32} height={32} />
                                 <div className="items-center flex p-2 sm:text-left">
                                     <p className="text-center font-semibold">
                                         {user.name}
@@ -198,13 +210,30 @@ const SearchResults = () => {
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className='flex h-full overflow-y-scroll z-100 flex-col justify-center border-2 border-green-200 rounded-md items-center m-4 bg-white'>
-                                <div className='flex rounded-md flex-col items-center justify-center p-8'>
-                                    <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={modal}>
-                                        <h1 className='font-bold text-3xl p-2 m-2 mt-8'>{modalContent?.paper_title}</h1>
-                                    </RoughNotation>
-                                    <p className='w-[90%] font-bold underline text-xl mt-12'>Abstract</p>
-                                    <p className='w-[90%] text-base mt-2'>{modalContent?.paper_summary}</p>
+                                className='flex h-[90vh] flex-col  overflow-y-scroll border-green-200 rounded-md items-center m-4 bg-white'>
+                                <div className='flex rounded-md h-full flex-col items-center p-8 '>
+                                    {/* <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={modal}> */}
+                                    <h1 className='font-bold text-3xl p-2 m-2'>{modalContent?.paper_title}</h1>
+                                    {/* </RoughNotation> */}
+                                    <div className='flex p-2 gap-x-4 '>
+                                        <div className='flex flex-col p-4 pt-0 w-4/5'>
+                                            <p className='font-bold underline mt-2'>Abstract</p>
+                                            <p className='text-base mt-2'>{modalContent?.paper_summary}</p>
+                                        </div>
+                                        <div className='flex flex-col w-1/4'>
+                                            <p className='font-bold underline mt-2'>Authors</p>
+                                            <ol>
+                                                {
+                                                    modalContent?.paper_authors.map((author, index) => {
+                                                        return (
+                                                            <li key={index} className='text-base mt-2'>{index + 1}. {author}</li>
+                                                        )
+                                                    })
+                                                }
+
+                                            </ol>
+                                        </div>
+                                    </div>
                                     <div className='w-1/2 flex justify-center items-center mt-4'>
                                         <button onClick={() => handleClick(modalContent)} className='items-center flex gap-x-2 p-2 text-white text-sm text-center rounded-lg hover:bg-green-700 cursor-pointer bg-green-600 mt-4 m-2 px-4 hover:scale-105 transition-all w-32'><AiFillFilePdf />View PDF</button>
                                         {/* <button onClick={() => handleStarred(modalContent)} className='items-center flex gap-x-2 p-2 text-green-700 border-green-700 border text-sm text-center rounded-lg hover:bg-gray-50 cursor-pointer mt-4 m-2 px-4 hover:scale-105 transition-all w-32'><AiOutlineStar />Star</button> */}
@@ -218,10 +247,8 @@ const SearchResults = () => {
                                     <RoughNotation animationDelay={1000} animationDuration={2000} type="highlight" color='#f0fdf4' show={true}>
                                         <h1 className='flex items-center font-bold text-3xl p-2 m-2'>Your Search Results are here <BsArrowReturnLeft size={21} className="ml-4" /></h1>
                                     </RoughNotation>
-                                    {/* <p className='w-[90%] font-bold underline text-xl mt-12'>Abstract</p> */}
                                     <p className='w-[90%] text-base mt-2'>Click on Continue Reading to open it here</p>
                                 </div>
-
                             </div>
                     }
                 </div>

@@ -9,12 +9,12 @@ interface Chat {
   author: string;
 }
 
-const Chatbot = (name: { name: string }) => {
+const Chatbot = (props: { name: string, f_path: string }) => {
   const [input, setInput] = useState("");
   const [chats, setChats] = useState<Chat[]>([]);
   const [loading, setLoading] = useState(false);
   const { user } = useUser();
-  let url = name.name == "explain" ? "/chat" : "/explain";
+  let url = props.name == "explain" ? "/chat" : "/explain";
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -33,6 +33,7 @@ const Chatbot = (name: { name: string }) => {
 
     client.post(url, {
       message: input,
+      f_path: props.f_path,
     })
       .then((res) => {
         const Answer = res.data.answer;
@@ -57,7 +58,7 @@ const Chatbot = (name: { name: string }) => {
     <div className='mx-2'>
       <div
         ref={chatContainerRef}
-        className='h-[72vh] rounded-lg mx-2 mt-2 overflow-y-auto scroll-smooth'
+        className='rounded-lg mx-2 mt-2 h-[78vh] overflow-y-scroll'
       >
         {chats.map((chat, index) => (
           <div
@@ -66,7 +67,7 @@ const Chatbot = (name: { name: string }) => {
               }`}
           >
             <span
-              className={`inline-block px-2 py-1  leading-8 text-m text-white rounded-lg ${chat.author === "user" ? "bg-green-500 rounded-br-none" : "bg-blue-500 rounded-bl-none"
+              className={`inline-block px-2 py-1 leading-8 text-white rounded-lg ${chat.author === "user" ? "bg-green-500 rounded-br-none" : "bg-blue-500 rounded-bl-none"
                 }`}
             >
               {chat.message}
