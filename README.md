@@ -8,7 +8,6 @@
 [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
 [PaperBrain](https://www.paperbrain.study)
 
-Link - [PaperBrain](https://paperbrain.study/)
 
 ## About
 
