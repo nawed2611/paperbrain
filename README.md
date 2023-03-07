@@ -41,8 +41,8 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 | Name | GitHub |
 | ---- | ------ |
 
-| [nawed2611](https://github.com/nawed2611)
+Nawed Ali | [nawed2611](https://github.com/nawed2611)
 
-| [mdarshad1000](https://github.com/mdarshad1000)
+Mohd Arshad | [mdarshad1000](https://github.com/mdarshad1000)
 
-| [SaadAnzar](https://github.com/SaadAnzar)
+Saad Anzar | [SaadAnzar](https://github.com/SaadAnzar)
