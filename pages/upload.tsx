@@ -12,7 +12,8 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Layout from './layout';
-import axios from 'axios';
+
+import Logo from '../public/logo.png';
 
 export default function Upload() {
     const [file, setFile] = useState<any>(null);
@@ -59,7 +60,6 @@ export default function Upload() {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('File available at', downloadURL);
                     toast.success('File uploaded successfully!');
-                    console.log(downloadURL.replace('https://firebasestorage.googleapis.com/v0/b/legal-ai-8ebe8.appspot.com/o/pdfs%2', ''));
 
                     router.push(`/custom/pdf/${downloadURL.replace('https://firebasestorage.googleapis.com/v0/b/legal-ai-8ebe8.appspot.com/o/pdfs%2', '')}`);
                 });
@@ -86,7 +86,7 @@ export default function Upload() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
                         className="absolute top-4 right-4 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-                        {/* <Image src={`${user.picture}`} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} /> */}
+                        <Image src={Logo} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} />
                         <div className="text-center flex  items-center space-y-2 sm:text-left">
                             <div className="space-y-0.5 mb-2">
                                 <p className=" text-black font-semibold">
