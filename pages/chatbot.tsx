@@ -47,7 +47,7 @@ const Chatbot = (props: { name: string, f_path: string }) => {
       })
       .catch((error) => {
         console.log(error);
-        setChats([...chats, { message: input, author: "user" }, { message: "Sorry, I don't understand", author: "bot" },]);
+        setChats([...chats, { message: input, author: "user" }, { message: "Sorry, We've ran out of Open AI credits right now! We know its not ideal.", author: "bot" },]);
         setInput("");
         setLoading(false);
 
