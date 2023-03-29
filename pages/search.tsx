@@ -39,7 +39,7 @@ const Search = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="absolute top-4 right-4 py-8 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-            <Image src={Logo} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} />
+            {/* <Image src={Logo} alt="user-profile-picture" className="rounded-full w-16 h-16" width={16} height={16} /> */}
             <div className="text-center flex  items-center space-y-2 sm:text-left">
               <div className="space-y-0.5 mb-2">
                 <p className=" text-black font-semibold">
@@ -62,10 +62,16 @@ const Search = () => {
                 isOpen &&
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  animate={{
+                    opacity: 1, scale: 1, transition: {
+                      delayChildren: 0.2,
+                      staggerChildren: 0.2
+                    }
+
+                  }}
                   transition={{ duration: 0.5 }}
 
-                  className='absolute top-16 border-2 border-green-100 right-8 w-44 bg-white z-12 flex flex-col m-2 '>
+                  className='absolute top-16 border-2 border-green-100 right-8 w-44 bg-white z-12 flex flex-col m-2 rounded-md'>
                   <Link scroll={false} href='/api/auth/logout' className="flex items-center p-2 m-1 text-center transition-all text-sm text-green-600 font-semibold rounded-lg  hover:text-white hover:bg-green-400 hover:border-transparent focus:outline-none focus-2 focus-green-600 focus-offset-2">
                     <AiOutlineLogout size={21} className='mr-2' />Logout
                   </Link>
