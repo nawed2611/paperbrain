@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    BACKEND_URL: 'http://localhost:5000',
+    BACKEND_URL: 'https://paperbrain.onrender.com/',
   },
   swcMinify: true,
   images: {
