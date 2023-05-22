@@ -1,5 +1,5 @@
 <h1 align="center">
- PaperBrain    
+ PaperBrain
 
  <img src="https://user-images.githubusercontent.com/83456083/215092669-6d56993d-3a7b-441c-8b56-48decb3b32bf.png" width="40" height="40" />
 
@@ -26,16 +26,15 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
   
 ## Built Using
 
-| Tech           | Link                                                 |
-| -------------- | ---------------------------------------------------- |
-| Front End      | [Next.js](https://nextjs.org/)                       |
-| Back End       | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
-| Explain Paper Bot          | [GPT-3](https://openai.com/api/)             |
-| Styles       | [Tailwind CSS](https://tailwindcss.com/docs/)        |
-| Storage Bucket | [Firebase](https://www.firebase.google.com/)         |
-| Hosting        | [Vercel](https://vercel.com/)                        |
-| Authentication | [Auth0](https://www.auth0.com/)                      |
-
+| Tech              | Link                                                 |
+| ----------------- | ---------------------------------------------------- |
+| Front End         | [Next.js](https://nextjs.org/)                       |
+| Back End          | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
+| Explain Paper Bot | [GPT-3](https://openai.com/api/)                     |
+| Styles            | [Tailwind CSS](https://tailwindcss.com/docs/)        |
+| Storage Bucket    | [Firebase](https://www.firebase.google.com/)         |
+| Hosting           | [Vercel](https://vercel.com/)                        |
+| Authentication    | [Auth0](https://www.auth0.com/)                      |
 
 ## Contributors
 
@@ -47,3 +46,21 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 | [mdarshad1000](https://github.com/mdarshad1000)
 
 | [SaadAnzar](https://github.com/SaadAnzar)
+
+## Getting Started
+
+### 1. Clone the repository
+
+`git clone https://github.com/SaadAnzar/paperbrain.git`
+
+### 2. Change the working directory
+
+`cd paperbrain`
+
+### 3. Install dependencies
+
+`npm install`
+
+### 4. Run the app
+
+`npm run dev`
