@@ -49,16 +49,16 @@ Saad Anzar | [SaadAnzar](https://github.com/SaadAnzar)
 
 ### 1. Clone the repository
 
-git clone https://github.com/nawed2611/paperbrain.git
+```git clone https://github.com/nawed2611/paperbrain.git```
 
 ### 2. Change the working directory
 
-cd paperbrain
+```cd paperbrain```
 
 ### 3. Install dependencies
 
-npm install
+```npm install```
 
 ### 4. Run the app
 
-npm run dev
+```npm run dev```
