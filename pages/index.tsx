@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useUser } from '@auth0/nextjs-auth0';
+import React, { useEffect, useState } from "react";
+import { useUser } from "@auth0/nextjs-auth0";
 import { RoughNotation } from "react-rough-notation";
 import Link from "next/link";
-import Layout from './layout';
-import toast, { Toaster } from 'react-hot-toast';
-import Image from 'next/image';
-import Logo from '../public/logo.png';
+import Layout from "./layout";
+import toast, { Toaster } from "react-hot-toast";
+import { AiOutlineTwitter, AiOutlineGithub } from "react-icons/ai";
+import Image from "next/image";
+import Logo from "../public/logo.png";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const { user } = useUser();
   const [active, setActive] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (user) {
       setActive(true);
       toast.success(`Welcome! ${user.name}`);
+      router.push("/search");
     }
-  }, [user]);
+  }, [user, router]);
 
   return (
     <Layout className='overflow-hidden '>
