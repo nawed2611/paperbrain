@@ -4,14 +4,9 @@
 
 https://user-images.githubusercontent.com/83456083/233063742-ca57e432-a4db-4d65-b7eb-20bd78e3ed72.mp4
 
-
-
-
-
 [YouTube](https://www.youtube.com/watch?v=JnMSISVfTYc)
 
 [PaperBrain](https://www.paperbrain.study)
-
 
 ## About
 
@@ -29,16 +24,15 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
   
 ## Built Using
 
-| Tech           | Link                                                 |
-| -------------- | ---------------------------------------------------- |
-| Front End      | [Next.js](https://nextjs.org/)                       |
-| Back End       | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
-| Explain Paper Bot          | [GPT-3](https://openai.com/api/)             |
-| Styles       | [Tailwind CSS](https://tailwindcss.com/docs/)        |
-| Storage Bucket | [Firebase](https://www.firebase.google.com/)         |
-| Hosting        | [Vercel](https://vercel.com/)                        |
-| Authentication | [Auth0](https://www.auth0.com/)                      |
-
+| Tech              | Link                                                 |
+| ----------------- | ---------------------------------------------------- |
+| Front End         | [Next.js](https://nextjs.org/)                       |
+| Back End          | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
+| Explain Paper Bot | [GPT-3](https://openai.com/api/)                     |
+| Styles            | [Tailwind CSS](https://tailwindcss.com/docs/)        |
+| Storage Bucket    | [Firebase](https://www.firebase.google.com/)         |
+| Hosting           | [Vercel](https://vercel.com/)                        |
+| Authentication    | [Auth0](https://www.auth0.com/)                      |
 
 ## Contributors
 
@@ -50,3 +44,21 @@ Nawed Ali | [nawed2611](https://github.com/nawed2611)
 Mohd Arshad | [mdarshad1000](https://github.com/mdarshad1000)
 
 Saad Anzar | [SaadAnzar](https://github.com/SaadAnzar)
+
+## Getting Started
+
+# 1. Clone the repository
+
+git clone https://github.com/nawed2611/paperbrain.git
+
+# 2. Change the working directory
+
+cd paperbrain
+
+# 3. Install dependencies
+
+npm install
+
+# 4. Run the app
+
+npm run dev
