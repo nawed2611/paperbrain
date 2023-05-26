@@ -38,7 +38,7 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 | Back End       | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
 | Explain Paper Bot          | [GPT-3](https://openai.com/api/)             |
 | Styles       | [Tailwind CSS](https://tailwindcss.com/docs/)        |
-| Storage Bucket | [Firebase](https://www.firebase.google.com/)         |
+| Storage Bucket | [Firebase](https://firebase.google.com/)         |
 | Hosting        | [Vercel](https://vercel.com/)                        |
 | Authentication | [Auth0](https://www.auth0.com/)                      |
 
