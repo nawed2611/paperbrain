@@ -37,7 +37,7 @@ export default function Home() {
         <Toaster />
         <div className="h-screen">
           <div className="bg-gray-50 flex items-center justify-between px-6 shadow">
-            <div className="inline-flex items-center mx-8 gap-x-6 my-3">
+            <div className="inline-flex items-center sm:mx-8 gap-x-6 my-3">
               <Image
                 src={Logo}
                 className="rounded-2xl"
@@ -47,12 +47,12 @@ export default function Home() {
               />
               <h1 className="text-2xl font-extrabold text-black">PaperBrain</h1>
             </div>
-            <button className="p-2 mx-8 text-white text-md text-center rounded-lg cursor-pointer bg-black px-4 hover:scale-105 transition-all">
+            <button className="p-3 sm:mx-8 text-white text-md text-center rounded-lg cursor-pointer bg-black sm:px-4 hover:scale-105 transition-all">
               <Link href={active ? '/search' : '/api/auth/login'}>Sign In</Link>
             </button>
           </div>
-          <div className="p-12 flex items-center justify-center gap-x-12">
-            <div className="w-[30%]">
+          <div className="p-12 sm:flex items-center justify-center gap-x-12 mt-24 sm:mt-0">
+            <div className="sm:w-[30%]">
               <div className="m-4">
                 <RoughNotation
                   animationDelay={1000}
@@ -60,29 +60,29 @@ export default function Home() {
                   type="box"
                   show={true}
                 >
-                  <h1 className="font-extrabold text-2xl p-2">
+                  <h1 className="font-extrabold text-2xl p-2 text-center">
                     Exploring research papers has never been easier!
                   </h1>
                 </RoughNotation>
               </div>
               <div className="flex items-center justify-center m-8">
-                <ul className="flex gap-x-4 text-gray-900 text-sm">
+                <ul className="flex gap-x-10 text-gray-900 text-sm">
                   <Link href="https://twitter.com/__paperbrain" target="blank">
                     <li className="cursor-pointer hover:scale-105 transition-all">
-                      <AiOutlineTwitter size={22} />
+                      <AiOutlineTwitter size={40} />
                     </li>
                   </Link>
 
                   <Link href="https://github.com/paperbrain100" target="blank">
                     <li className="cursor-pointer hover:scale-105 transition-all">
-                      <AiOutlineGithub size={22} />
+                      <AiOutlineGithub size={38} />
                     </li>
                   </Link>
                 </ul>
               </div>
             </div>
             <video
-              className="w-[65%] rounded-xl shadow-2xl"
+              className="sm:w-[65%] rounded-xl shadow-2xl"
               autoPlay
               muted
               loop
