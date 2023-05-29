@@ -133,3 +133,8 @@ Step 8: Push the changes for review
 Step 9: Create a PR on Github. (Don't just hit the create a pull request button, you must write a PR message to clarify why and what are you contributing)
 </p>
 
+##  Contributors
+<p align="center">
+<a href="https://github.com/nawed2611/paperbrain/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nawed2611/paperbrain" />
+</a></p>
