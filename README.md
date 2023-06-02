@@ -48,6 +48,13 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 | Hosting           | [Vercel](https://vercel.com/)                        |
 | Authentication    | [Auth0](https://www.auth0.com/)                      |
 
+## Tech Stack Used
+
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![javascript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS5](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+
 ## Contributors
 
 | Name | GitHub |
