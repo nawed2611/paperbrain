@@ -9,6 +9,7 @@ https://user-images.githubusercontent.com/83456083/233063742-ca57e432-a4db-4d65-
 [PaperBrain](https://www.paperbrain.study)
 
 ## About
+
 <div align="center">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
 <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
@@ -44,7 +45,7 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 | Back End          | [Flask](https://flask.palletsprojects.com/en/2.2.x/) |
 | Explain Paper Bot | [GPT-3](https://openai.com/api/)                     |
 | Styles            | [Tailwind CSS](https://tailwindcss.com/docs/)        |
-| Storage Bucket    | [Firebase](https://firebase.google.com/)         |
+| Storage Bucket    | [Firebase](https://firebase.google.com/)             |
 | Hosting           | [Vercel](https://vercel.com/)                        |
 | Authentication    | [Auth0](https://www.auth0.com/)                      |
 
@@ -54,8 +55,7 @@ PaperBrain also allows you to upload your own papers and interact with the in-bu
 ![javascript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS5](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-
-## Contributors
+## Project Admins
 
 | Name | GitHub |
 | ---- | ------ |
@@ -70,53 +70,53 @@ Saad Anzar | [SaadAnzar](https://github.com/SaadAnzar)
 
 ### 1. Clone the repository
 
-```git clone https://github.com/nawed2611/paperbrain.git```
+`git clone https://github.com/nawed2611/paperbrain.git`
 
 ### 2. Change the working directory
 
-```cd paperbrain```
+`cd paperbrain`
 
 ### 3. Install dependencies
 
-```npm install```
+`npm install`
 
 ### 4. Run the app
 
-```npm run dev```
-
+`npm run dev`
 
 ## Steps to Contribute
+
 <p>
 Step 1: Fork the repo and Go to your Git terminal and clone it on your machine.
 </p>
 
-```git clone https://github.com/<your_github_username>/paperbrain.git```
+`git clone https://github.com/<your_github_username>/paperbrain.git`
 
-```cd paperbarain```
+`cd paperbarain`
 
 <p>
 Step 2: Add an upstream link to the main branch in your cloned repo
  </p>
 
-```git remote add upstream https://github.com/<your_github_username>/paperbrain.git```
+`git remote add upstream https://github.com/<your_github_username>/paperbrain.git`
 
 <p>
 Step 3: Keep your cloned repo up to date by pulling from upstream (this will also avoid any merge conflicts while committing new changes)
 </p>
 
-```git pull upstream main```
+`git pull upstream main`
 
 <p>
 Step 4: Create your feature branch (This is a necessary step, so don't skip it)
 </p>
 
-```git checkout -b <branch-name>```
+`git checkout -b <branch-name>`
 
 <p>
 Step 5: Track and stage your changes.
 </p>
 
-```git status```
+`git status`
 
 <p>
  Step 6: Add all the required changes
@@ -128,19 +128,20 @@ Step 5: Track and stage your changes.
 Step 7: Commit all the changes (Write commit message as "Small Message")
 </p>
 
-```git commit -m "<your-commit-message>"```
+`git commit -m "<your-commit-message>"`
 
 <p>
 Step 8: Push the changes for review
 </p>
 
-```git push origin <branch-name>```
+`git push origin <branch-name>`
 
 <p>
 Step 9: Create a PR on Github. (Don't just hit the create a pull request button, you must write a PR message to clarify why and what are you contributing)
 </p>
 
-##  Contributors
+## Contributors
+
 <p align="center">
 <a href="https://github.com/nawed2611/paperbrain/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nawed2611/paperbrain" />
