@@ -10,9 +10,11 @@ import Logo from '../public/logo.png';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+
 export default function Home() {
   const { user } = useUser();
   const [active, setActive] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,6 +24,16 @@ export default function Home() {
       router.push('/search');
     }
   }, [user, router]);
+
+const toggleDarkMode = () => {
+  setIsDarkMode(!isDarkMode);
+};
+
+useEffect (() => {
+  const root = window.document.documentElement;
+  root.classList.remove(isDarkMode ? 'light' : 'dark');
+  root.classList.add(isDarkMode ? 'dark' : 'light');
+}, [isDarkMode]);
 
   return (
     <>
@@ -33,10 +45,10 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout className="overflow-hidden">
+      <Layout className={`overflow-hidden ${isDarkMode ? 'dark' : 'light'}`}>
         <Toaster />
-        <div className="h-screen">
-          <div className="bg-gray-50 flex items-center justify-between px-6 shadow">
+        <div className={`h-screen ${isDarkMode ? 'dark' : 'light'}`}>
+          <div className={`bg-gray  flex items-center justify-between px-6 shadow`}>
             <div className="inline-flex items-center sm:mx-8 gap-x-6 my-3">
               <Image
                 src={Logo}
@@ -50,6 +62,11 @@ export default function Home() {
             <button className="p-3 sm:mx-8 text-white text-md text-center rounded-lg cursor-pointer bg-black sm:px-4 hover:scale-105 transition-all">
               <Link href={active ? '/search' : '/api/auth/login'}>Sign In</Link>
             </button>
+
+            <button className='p-3 sm:mx-8 text-white text-md text-center rounded-lg cursor-pointer bg-black sm:px-4 hover:scale-105 transition-all' onClick={toggleDarkMode}>
+              Toggle Dark Mode
+            </button>
+
           </div>
           <div className="p-12 sm:flex items-center justify-center gap-x-12 mt-24 sm:mt-0">
             <div className="sm:w-[30%]">
