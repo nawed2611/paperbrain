@@ -148,7 +148,7 @@ Step 9: Create a PR on Github. (Don't just hit the create a pull request button,
 </a></p>
 
 
-##STEPS TO SIGNIN TO DUMMYGRAM APP
+##STEPS TO SIGNIN TO paperbrain APP
 
 <p>
 Step1:create your auth0 account
