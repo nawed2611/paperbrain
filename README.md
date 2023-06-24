@@ -147,7 +147,6 @@ Step 9: Create a PR on Github. (Don't just hit the create a pull request button,
   <img src="https://contrib.rocks/image?repo=nawed2611/paperbrain" />
 </a></p>
 
-
 ##STEPS TO SIGNIN TO paperbrain APP
 
 <p>
