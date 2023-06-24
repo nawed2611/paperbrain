@@ -146,3 +146,46 @@ Step 9: Create a PR on Github. (Don't just hit the create a pull request button,
 <a href="https://github.com/nawed2611/paperbrain/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nawed2611/paperbrain" />
 </a></p>
+
+##STEPS TO SIGNIN TO paperbrain APP
+
+<p>
+Step1:create your auth0 account
+</P>
+`https://auth0.com/`
+
+<p>
+Step2:Create a Regular Web Application in the Auth0 Dashboard.
+</p>
+
+<p>
+Step3: configure the following URLs for your application under the "Application URIs" section of the "Settings" page:
+Allowed Callback URLs: http://localhost:3000/api/auth/callback
+Allowed Logout URLs: http://localhost:3000/
+</p>
+
+<p>
+Step4:In your main project directory install the auth0 package through npm 
+</p>
+`npm install @auth0/nextjs-auth0`
+
+<p>
+Step5:create a .env.local file under your root project directory that defines the necessary Auth0 configuration values as follows:
+# A long, secret value used to encrypt the session cookie
+AUTH0_SECRET='LONG_RANDOM_VALUE'
+# The base url of your application
+AUTH0_BASE_URL='http://localhost:3000'
+# The url of your Auth0 tenant domain
+AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
+# Your Auth0 application's Client ID
+AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
+# Your Auth0 application's Client Secret
+AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
+
+type the below code in terminal to get the large random value 
+node -e "console.log(crypto.randomBytes(32).toString('hex'))"
+</p>
+
+<p>
+Step6:Now try signing, It will work.
+</P>
