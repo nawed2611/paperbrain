@@ -70,7 +70,7 @@ Saad Anzar | [SaadAnzar](https://github.com/SaadAnzar)
 
 ### 1. Clone the repository
 
-`git clone https://github.com/nawed2611/paperbrain.git`
+`ggit clone https://github.com/<your_github_username>/paperbrain.git`
 
 ### 2. Change the working directory
 
@@ -92,7 +92,7 @@ Step 1: Fork the repo and Go to your Git terminal and clone it on your machine.
 
 `git clone https://github.com/<your_github_username>/paperbrain.git`
 
-`cd paperbarain`
+`cd paperbrain`
 
 <p>
 Step 2: Add an upstream link to the main branch in your cloned repo
