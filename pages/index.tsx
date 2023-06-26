@@ -68,13 +68,13 @@ export default function Home() {
               <div className="flex items-center justify-center m-8">
                 <ul className="flex gap-x-10 text-gray-900 text-sm">
                   <Link href="https://twitter.com/__paperbrain" target="blank">
-                    <li className="cursor-pointer hover:scale-105 transition-all">
+                    <li className="cursor-pointer hover:scale-125 transition-all hover:bg-sky-200 rounded-full">
                       <AiOutlineTwitter size={40} />
                     </li>
                   </Link>
 
                   <Link href="https://github.com/paperbrain100" target="blank">
-                    <li className="cursor-pointer hover:scale-105 transition-all">
+                    <li className="cursor-pointer hover:scale-125 transition-all hover:bg-red-200 rounded-full">
                       <AiOutlineGithub size={38} />
                     </li>
                   </Link>
