@@ -10,20 +10,6 @@ https://user-images.githubusercontent.com/83456083/233063742-ca57e432-a4db-4d65-
 
 ## About
 
-<div align="center">
-<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
-<img src="https://forthebadge.com/images/badges/uses-brains.svg" />
-<img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
-  <br>
-<img src="https://img.shields.io/github/repo-size/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/issues/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/issues-closed-raw/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/issues-pr-closed-raw/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/issues-pr/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/forks/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/stars/nawed2611/paperbrain" />
-  <img src="https://img.shields.io/github/contributors/nawed2611/paperbrain" />
- </div>
 <p> People publish a lot of fascinating research out to the world, yet the tools to consume this research are quite primitive. It is also really hard to understand the research papers. </p>
   
 <p>PaperBrain is the go-to platform for accessing and understanding research papers. We provide a fascinating interface for users to search for papers and return a list of papers with their abstracts and a direct pdf link in a prettified format.
@@ -167,6 +153,7 @@ Allowed Logout URLs: http://localhost:3000/
 <p>
 Step4:In your main project directory install the auth0 package through npm 
 </p>
+
 `npm install @auth0/nextjs-auth0`
 
 <p>
