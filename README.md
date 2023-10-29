@@ -155,24 +155,3 @@ Step4:In your main project directory install the auth0 package through npm
 </p>
 
 `npm install @auth0/nextjs-auth0`
-
-<p>
-Step5:create a .env.local file under your root project directory that defines the necessary Auth0 configuration values as follows:
-# A long, secret value used to encrypt the session cookie
-AUTH0_SECRET='LONG_RANDOM_VALUE'
-# The base url of your application
-AUTH0_BASE_URL='http://localhost:3000'
-# The url of your Auth0 tenant domain
-AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
-# Your Auth0 application's Client ID
-AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
-# Your Auth0 application's Client Secret
-AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
-
-type the below code in terminal to get the large random value 
-node -e "console.log(crypto.randomBytes(32).toString('hex'))"
-</p>
-
-<p>
-Step6:Now try signing, It will work.
-</P>
